@@ -10,7 +10,7 @@ data class Contact(
 	val name: String,
 	val email: String,
 	val phoneNumber: String,
-	val like: Boolean
+	var like: Boolean
 ) : Parcelable {
 	companion object {
 		val DATA = listOf(
