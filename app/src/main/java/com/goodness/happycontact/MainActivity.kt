@@ -3,6 +3,7 @@ package com.goodness.happycontact
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.goodness.happycontact.databinding.ActivityMainBinding
+import com.google.android.material.tabs.TabLayoutMediator
 
 class MainActivity : AppCompatActivity() {
 	private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
@@ -16,7 +17,16 @@ class MainActivity : AppCompatActivity() {
 
 	private fun setSwiper() {
 		val viewPager = binding.pager
+		val tabLayout = binding.tabLayout
 
 		viewPager.adapter = MainAdapter(this)
+
+		TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+			tab.text = when (position) {
+				0 -> "CONTACT"
+				1 -> "MY PAGE"
+				else -> ""
+			}
+		}.attach()
 	}
 }
