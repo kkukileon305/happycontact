@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.goodness.happycontact.databinding.FragmentContactListBinding
 
 class ContactList : Fragment() {
-	lateinit var binding: FragmentContactListBinding
+	private lateinit var binding: FragmentContactListBinding
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
