@@ -10,5 +10,13 @@ class MainActivity : AppCompatActivity() {
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		setContentView(binding.root)
+
+		setSwiper()
+	}
+
+	private fun setSwiper() {
+		val viewPager = binding.pager
+
+		viewPager.adapter = MainAdapter(this)
 	}
 }
