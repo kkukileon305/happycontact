@@ -1,5 +1,4 @@
 package com.goodness.happycontact
-
 import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -20,7 +19,27 @@ class MainActivity : AppCompatActivity() {
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		setContentView(binding.root)
-		
+
+
+		val receivedIntent = intent
+		val receivedBundle = receivedIntent.extras
+
+
+		//정현우 작업물 디테일에 데이터 보내는 작업.
+// Bundle에서 데이터 추출
+		val contact = receivedBundle?.getParcelable<Contact>(Contact.CONTACT_KEY)
+		// 데이터를 담은 Bundle 생성
+		val myBundle = Bundle()
+		myBundle.putParcelable("contact", contact)
+
+// Intent에 Bundle을 추가하여 디테일 액티비티로 전달
+		val intent = Intent(this, DetailActivity::class.java)
+		intent.putExtra("myBundle", myBundle)
+		startActivity(intent)
+		//정현우 작업 끝
+
+
+
 		binding.btnTest.setOnClickListener {
 			val builder = AlertDialog.Builder(this)
 			builder.setTitle("Add contact")
@@ -44,7 +63,22 @@ class MainActivity : AppCompatActivity() {
 				val email = rep4?.text.toString()
 
 				dataList.add(Contact(dataList.size + 1, img, name, email, phoneNumber, false))
+
+				//정현우 작업물 디테일에 데이터 보내는 작업.
+				val dtContact = Contact(dataList.size + 1, img, name, email, phoneNumber, false)
+				dataList.add(dtContact)
+
+				val intent = Intent(this@MainActivity, DetailActivity::class.java)
+
+				// Bundle에 연락처 정보 추가
+				val bundle = Bundle()
+				bundle.putParcelable(Contact.CONTACT_KEY, dtContact)
+				intent.putExtras(bundle)
+
+				// 디테일 페이지 시작
+				startActivity(intent)
 			}
+			//정현우 작업 끝
 
 			builder.setPositiveButton("추가") { dialog, _ ->
 				// 버튼 클릭시 실행될 로직
@@ -89,4 +123,6 @@ class MainActivity : AppCompatActivity() {
 		}
 	}
 
+
 }
+
