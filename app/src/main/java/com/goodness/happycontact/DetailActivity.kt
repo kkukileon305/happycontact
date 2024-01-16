@@ -12,14 +12,5 @@ class DetailActivity : AppCompatActivity() {
 		setContentView(binding.root)
 
 
-		val receivedIntent = intent
-		val receivedBundle = receivedIntent.extras
-
-		if (receivedBundle != null) {
-			val profileImage = receivedBundle.getInt("profileImage", 0)
-			val name = receivedBundle.getString("name", "")
-			val like = receivedBundle.getBoolean("like", false)
-			val phoneNumber = receivedBundle.getString("phoneNumber", "")
-		}
 	}
 }

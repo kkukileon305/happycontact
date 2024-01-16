@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AlertDialog.*
 import com.goodness.happycontact.databinding.ActivityMainBinding
 import de.hdodenhof.circleimageview.CircleImageView
 import com.google.android.material.tabs.TabLayoutMediator
@@ -22,22 +23,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-		val bundle = Bundle().apply {
-			putInt("profileImage", R.drawable.break_sparta)
-			putString("name", "파괴하는 르탄이")
-			putBoolean("like", false)
-			putString("phoneNumber", "01012341234")
-		}
-
-		val intent = Intent(this, DetailActivity::class.java)
-		intent.putExtras(bundle)
-		startActivity(intent)
-	}
 
 
 
         binding.btnTest.setOnClickListener {
-            val builder = AlertDialog.Builder(this)
+            val builder = Builder(this)
             builder.setTitle("Add contact")
 
             val view1 = layoutInflater.inflate(R.layout.add_contact_dialog, null)
@@ -103,5 +93,6 @@ class MainActivity : AppCompatActivity() {
             //적용이 안됨
         }
     }
-
 }
+
+
