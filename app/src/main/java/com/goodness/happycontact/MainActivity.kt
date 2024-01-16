@@ -23,8 +23,8 @@ class MainActivity : AppCompatActivity() {
 
 		TabLayoutMediator(tabLayout, viewPager) { tab, position ->
 			tab.text = when (position) {
-				0 -> "CONTACT"
-				1 -> "MY PAGE"
+				0 -> getString(R.string.main_tab_name_1)
+				1 -> getString(R.string.main_tab_name_2)
 				else -> ""
 			}
 		}.attach()
