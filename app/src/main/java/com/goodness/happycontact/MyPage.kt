@@ -15,7 +15,7 @@ import com.goodness.happycontact.databinding.MypageEditDialogBinding
 
 class MyPage : Fragment() {
 	private lateinit var binding: FragmentMyPageBinding
-	
+
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 	}
@@ -49,6 +49,9 @@ class MyPage : Fragment() {
 			val editEmail: EditText = dialogBinding.dialogEditEmail
 			val editNumber: EditText = dialogBinding.dialogEditNumber
 			val profileImage : ImageView = dialogBinding.dialogNowProfileImage
+
+
+
 
 
 			editName.hint = (binding.tvMyName).text

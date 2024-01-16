@@ -10,5 +10,10 @@ class DetailActivity : AppCompatActivity() {
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		setContentView(binding.root)
+
+
+		val receivedIntent = intent
+		val receivedBundle = receivedIntent.extras
+
 	}
 }

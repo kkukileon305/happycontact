@@ -1,5 +1,6 @@
 package com.goodness.happycontact
 
+import android.content.res.Resources
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
