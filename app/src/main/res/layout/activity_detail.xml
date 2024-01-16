@@ -193,6 +193,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginBottom="20dp"
         android:text="Mobile"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/iconItemCardView3"
         app:layout_constraintStart_toStartOf="@+id/iconItemCardView3"
@@ -207,6 +208,7 @@
         android:layout_marginBottom="6dp"
         android:text="010-222-3333"
         android:textColor="#716C6C"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/iconItemCardView3"
         app:layout_constraintStart_toStartOf="@+id/iconItemCardView3"
         app:layout_constraintTop_toBottomOf="@+id/tvMobile" />
@@ -218,6 +220,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginBottom="20dp"
         android:text="Mobile"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/iconItemCardView4"
         app:layout_constraintStart_toStartOf="@+id/iconItemCardView4"
@@ -232,6 +235,7 @@
         android:layout_marginBottom="6dp"
         android:text="010-222-3333"
         android:textColor="#716C6C"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/iconItemCardView4"
         app:layout_constraintStart_toStartOf="@+id/iconItemCardView4"
         app:layout_constraintTop_toBottomOf="@+id/tvMobile2" />
