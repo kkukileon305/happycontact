@@ -22,9 +22,25 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+// 데이터 클래스 인스턴스 생성
+        val contact = Contact(
+            id = 1,
+            profileImage = R.drawable.break_sparta,
+            name = "파괴하는 르탄이",
+            email = "break@sparta.com",
+            like = false,
+            phoneNumber = "01012341234"
+        )
 
+// 데이터 클래스 객체를 Bundle에 담기
+        val bundle = Bundle().apply {
+            putParcelable(Contact.CONTACT_KEY, contact)
+        }
 
-
+// Intent에 Bundle을 추가하여 다른 액티비티로 전달
+        val intent = Intent(this, DetailActivity::class.java)
+        intent.putExtras(bundle)
+        startActivity(intent)
 
         binding.btnTest.setOnClickListener {
             val builder = Builder(this)
