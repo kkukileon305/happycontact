@@ -1,5 +1,6 @@
 package com.goodness.happycontact
 
+import android.content.res.Resources
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
@@ -10,7 +11,7 @@ data class Contact(
 	val name: String,
 	val email: String,
 	val phoneNumber: String,
-	val like: Boolean
+	var like: Boolean
 ) : Parcelable {
 	companion object {
 		val DATA = listOf(
@@ -135,6 +136,8 @@ data class Contact(
 				phoneNumber = "01011112222"
 			),
 		)
+
+		val CONTACT_KEY = "CONTACT"
 	}
 }
 
