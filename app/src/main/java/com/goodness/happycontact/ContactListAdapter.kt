@@ -1,5 +1,8 @@
 package com.goodness.happycontact
 
+import android.content.Context
+import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.goodness.happycontact.databinding.ContactItemBinding
 
 class ContactListAdapter(
+	private val context: Context,
 	private val dataList: List<Contact>,
 	private val onLikeButtonClick: (Int) -> Unit
 ) : RecyclerView.Adapter<ContactListAdapter.Holder>() {
@@ -41,6 +45,15 @@ class ContactListAdapter(
 			like.setOnClickListener {
 				onLikeButtonClick(position)
 				notifyItemChanged(position)
+			}
+
+			itemView.setOnClickListener {
+				val bundle = Bundle()
+				bundle.putParcelable(Contact.CONTACT_KEY, data)
+
+				val intent = Intent(context, DetailActivity::class.java)
+				intent.putExtras(bundle)
+				context.startActivity(intent)
 			}
 		}
 	}

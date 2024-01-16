@@ -135,6 +135,8 @@ data class Contact(
 				phoneNumber = "01011112222"
 			),
 		)
+
+		val CONTACT_KEY = "CONTACT"
 	}
 }
 
