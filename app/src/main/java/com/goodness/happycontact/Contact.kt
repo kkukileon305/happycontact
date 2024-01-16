@@ -1,6 +1,7 @@
 package com.goodness.happycontact
 
 import android.os.Parcelable
+import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
