@@ -8,10 +8,11 @@ import kotlinx.parcelize.Parcelize
 data class Contact(
 	val id: Int,
 	val profileImage: Int,
-	val name: String,
+	var name: String,
 	val email: String,
 	val phoneNumber: String,
 	var like: Boolean
+
 ) : Parcelable {
 	companion object {
 		val DATA = listOf(
