@@ -83,7 +83,8 @@ class AddFrag : DialogFragment() {
                 phoneNumber = num,
                 like = false
             )
-//            Contact.DATA.add
+            Contact.DATA.add(addNewContact)
+
 
 
             //or

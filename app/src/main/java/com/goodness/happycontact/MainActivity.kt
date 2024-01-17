@@ -25,21 +25,6 @@ class MainActivity : AppCompatActivity() {
 		setSwiper()
 	}
 
-	private fun setSwiper() {
-		val viewPager = binding.pager
-		val tabLayout = binding.tabLayout
-
-		viewPager.adapter = MainAdapter(this)
-
-		TabLayoutMediator(tabLayout, viewPager) { tab, position ->
-			tab.text = when (position) {
-				0 -> getString(R.string.main_tab_name_1)
-				1 -> getString(R.string.main_tab_name_2)
-				else -> ""
-			}
-		}.attach()
-	}
-
 	private fun addButtonPressed(){
 		binding.btnTest.setOnClickListener {
 			AddFrag().show(supportFragmentManager,"AddFrag")
@@ -47,22 +32,18 @@ class MainActivity : AppCompatActivity() {
 		}
 	}
 
+    private fun setSwiper() {
+        val viewPager = binding.pager
+        val tabLayout = binding.tabLayout
 
+        viewPager.adapter = MainAdapter(this)
 
-/*	private fun Validation(dialogView: View, dialog: DialogInterface) {
-		val rep2: EditText? = dialogView.findViewById(R.id.editName)
-		val rep3: EditText? = dialogView.findViewById(R.id.editNum)
-		val rep4: EditText? = dialogView.findViewById(R.id.editMail)
-
-		val name = rep2?.text.toString()
-		val phoneNumber = rep3?.text.toString()
-		val email = rep4?.text.toString()
-
-		if (name.isEmpty() || phoneNumber.isEmpty() || email.isEmpty()) {
-			Toast.makeText(this, "1개 이상의 정보가 입력되지 않았습니다", Toast.LENGTH_SHORT).show()
-		} else {
-			//적용이 안됨
-		}
-	}*/
-
+        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+            tab.text = when (position) {
+                0 -> getString(R.string.main_tab_name_1)
+                1 -> getString(R.string.main_tab_name_2)
+                else -> ""
+            }
+        }.attach()
+    }
 }
