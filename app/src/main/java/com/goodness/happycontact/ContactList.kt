@@ -12,6 +12,7 @@ class ContactList : Fragment() {
 	private lateinit var binding: FragmentContactListBinding
 	private lateinit var contactListAdapter: ContactListAdapter
 
+
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 	}
@@ -27,12 +28,19 @@ class ContactList : Fragment() {
 		contactListAdapter = ContactListAdapter(requireContext(), Contact.DATA) { position ->
 			val clickedData = Contact.DATA[position]
 			clickedData.like = !clickedData.like
-			contactListAdapter.updateData(Contact.DATA)
+//			contactListAdapter.updateData(Contact.DATA)
 		}
 
 		recyclerView.adapter = contactListAdapter
 		recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
 		return binding.root
+	}
+
+	fun addData() {
+		contactListAdapter.notifyItemInserted(Contact.DATA.size - 1)
+	}
+	fun updateData() {
+
 	}
 }

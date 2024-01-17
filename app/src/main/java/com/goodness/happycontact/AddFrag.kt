@@ -13,100 +13,100 @@ import com.goodness.happycontact.databinding.AddContactDialogBinding
 import android.util.Patterns
 import android.view.WindowManager
 
-class AddFrag : DialogFragment() {
-    private var _binding: AddContactDialogBinding? = null
-    private val binding get() = _binding!!
+class AddFrag(val handler: () -> Unit) : DialogFragment() {
+	private var _binding: AddContactDialogBinding? = null
+	private val binding get() = _binding!!
 //    private val dataList = mutableListOf<Contact>()
 
-    override fun onResume() { //dialog view 가로 크기 비율을 설정 : 코드 가져옴
-        val windowManager = requireContext().getSystemService(Context.WINDOW_SERVICE) as WindowManager
-        val display = windowManager.defaultDisplay
-        val size = Point()
-        display.getSize(size)
+	override fun onResume() { //dialog view 가로 크기 비율을 설정 : 코드 가져옴
+		val windowManager = requireContext().getSystemService(Context.WINDOW_SERVICE) as WindowManager
+		val display = windowManager.defaultDisplay
+		val size = Point()
+		display.getSize(size)
 
-        val params: ViewGroup.LayoutParams? = dialog?.window?.attributes
-        val deviceWidth = size.x
-        params?.width = (deviceWidth * 0.9).toInt()
-        dialog?.window?.attributes = params as WindowManager.LayoutParams
-        super.onResume()
-    }
+		val params: ViewGroup.LayoutParams? = dialog?.window?.attributes
+		val deviceWidth = size.x
+		params?.width = (deviceWidth * 0.9).toInt()
+		dialog?.window?.attributes = params as WindowManager.LayoutParams
+		super.onResume()
+	}
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        _binding = AddContactDialogBinding.inflate(inflater, container, false)
-        Log.d("행동확인","다이얼로그 생성")
-        return binding.root
-    }
+	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+		_binding = AddContactDialogBinding.inflate(inflater, container, false)
+		Log.d("행동확인", "다이얼로그 생성")
+		return binding.root
+	}
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+		super.onViewCreated(view, savedInstanceState)
 
-        binding.btnDialogYes.setOnClickListener {
+		binding.btnDialogYes.setOnClickListener {
 //            val img = binding.editImg.toString().toInt() //정상적으로 전달되는지 확인해야 함, 추가 버튼 눌림과 동시에 크래시남 다른 방법 찾아보기
-            val name = binding.editName.text.toString()
-            val num = binding.editNum.text.toString()
-            val mail = binding.editMail.text.toString()
+			val name = binding.editName.text.toString()
+			val num = binding.editNum.text.toString()
+			val mail = binding.editMail.text.toString()
 
-            if (name.isEmpty() || num.isEmpty() || mail.isEmpty()) {
-                Toast.makeText(context, "모든 필드를 채워주세요", Toast.LENGTH_SHORT).show()
-                Log.d("행동확인","빈칸 없음 확인 통과하지 못함")
-                return@setOnClickListener
-                //아래 코드 실행하지 않고 처음으로 감
-            }
-            Log.d("행동확인","빈칸 없음 확인 통과함")
-
-
-            if (!Patterns.EMAIL_ADDRESS.matcher(mail).matches()) {
-                Toast.makeText(context, "이메일 형식이 올바르지 않습니다", Toast.LENGTH_SHORT).show()
-                Log.d("행동확인","이메일 형식 확인 통과하지 못함")
-                return@setOnClickListener
-                //아래 코드 실행하지 않고 처음으로 감
-            }
-            Log.d("행동확인","이메일 형식 확인 통과함")
+			if (name.isEmpty() || num.isEmpty() || mail.isEmpty()) {
+				Toast.makeText(context, "모든 필드를 채워주세요", Toast.LENGTH_SHORT).show()
+				Log.d("행동확인", "빈칸 없음 확인 통과하지 못함")
+				return@setOnClickListener
+				//아래 코드 실행하지 않고 처음으로 감
+			}
+			Log.d("행동확인", "빈칸 없음 확인 통과함")
 
 
-            // >>> 방법 2개 수정 1개
-/*            val addNewContact = Contact(
-                id = dataList.size + 1,
-                profileImage = R.drawable.ic_launcher_foreground, // 일단 임시 이미지 추가
-                name = name,
-                email = mail,
-                phoneNumber = num,
-                like = false
-            )
-            dataList.add(addNewContact) //Contact형식 그대로 전달*/
-
-            val addNewContact = Contact(
-                id = Contact.DATA.size + 1,
-                profileImage = R.drawable.ic_launcher_foreground, // 일단 임시 이미지 추가
-                name = name,
-                email = mail,
-                phoneNumber = num,
-                like = false
-            )
-            Contact.DATA.add(addNewContact)
+			if (!Patterns.EMAIL_ADDRESS.matcher(mail).matches()) {
+				Toast.makeText(context, "이메일 형식이 올바르지 않습니다", Toast.LENGTH_SHORT).show()
+				Log.d("행동확인", "이메일 형식 확인 통과하지 못함")
+				return@setOnClickListener
+				//아래 코드 실행하지 않고 처음으로 감
+			}
+			Log.d("행동확인", "이메일 형식 확인 통과함")
 
 
 
-            //or
-            //dataList.add(Contact(dataList.size + 1, img, name, mail, num, false))
-            // <<<
-            dismiss()
-            Log.d("행동확인","확인 버튼 눌림")
-        }
+			// >>> 방법 2개 수정 1개
+			/*            val addNewContact = Contact(
+											id = dataList.size + 1,
+											profileImage = R.drawable.ic_launcher_foreground, // 일단 임시 이미지 추가
+											name = name,
+											email = mail,
+											phoneNumber = num,
+											like = false
+									)
+									dataList.add(addNewContact) //Contact형식 그대로 전달*/
 
-        binding.btnDialogNo.setOnClickListener {
-            dismiss()
-            Log.d("행동확인","취소 버튼 눌림")
-        }
-    }
+			val addNewContact = Contact(
+				id = Contact.DATA.size + 1,
+				profileImage = R.drawable.ic_launcher_foreground, // 일단 임시 이미지 추가
+				name = name,
+				email = mail,
+				phoneNumber = num,
+				like = false
+			)
+			Contact.DATA.add(addNewContact)
+			handler()
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-        Log.d("행동확인","다이얼로그 Destroy")
-    }
+			//or
+			//dataList.add(Contact(dataList.size + 1, img, name, mail, num, false))
+			// <<<
+			dismiss()
+			Log.d("행동확인", "확인 버튼 눌림")
+		}
+
+		binding.btnDialogNo.setOnClickListener {
+			dismiss()
+			Log.d("행동확인", "취소 버튼 눌림")
+		}
+	}
+
+	override fun onDestroyView() {
+		super.onDestroyView()
+		_binding = null
+		Log.d("행동확인", "다이얼로그 Destroy")
+	}
+
 }
-
 
 
 /*

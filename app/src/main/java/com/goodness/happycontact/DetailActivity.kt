@@ -51,14 +51,14 @@ class DetailActivity : AppCompatActivity() {
     }
 
 
-        // 좋아요 버튼 이미지 업데이트 함수
-        private fun updateLikeButtonImage() {
-            if (contact?.like == true) {
-                binding.ivLike.setImageResource(R.drawable.heart_filled)
-            } else {
-                binding.ivLike.setImageResource(R.drawable.heart)
-            }
+    // 좋아요 버튼 이미지 업데이트 함수
+    private fun updateLikeButtonImage() {
+        if (contact?.like == true) {
+            binding.ivLike.setImageResource(R.drawable.heart_filled)
+        } else {
+            binding.ivLike.setImageResource(R.drawable.heart)
         }
+    }
 }
 
 
