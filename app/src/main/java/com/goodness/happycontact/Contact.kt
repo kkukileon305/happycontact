@@ -15,7 +15,7 @@ data class Contact(
 
 ) : Parcelable {
 	companion object {
-		val DATA = listOf(
+		val DATA = mutableListOf(
 			Contact(
 				id = 1,
 				profileImage = R.drawable.break_sparta,
