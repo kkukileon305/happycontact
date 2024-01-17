@@ -8,13 +8,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.goodness.happycontact.databinding.FragmentMyPageBinding
 import com.goodness.happycontact.databinding.MypageEditDialogBinding
 import java.lang.Exception
-import java.text.DecimalFormat
+
 import java.text.SimpleDateFormat
 import java.util.Locale
 
@@ -23,7 +22,10 @@ import java.util.Locale
 
 class MyPage : Fragment() {
 	private lateinit var binding: FragmentMyPageBinding
+	private lateinit var dialogBinding: MypageEditDialogBinding
 	private val PICK_IMAGE_REQUEST = 1
+
+
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
@@ -41,22 +43,23 @@ class MyPage : Fragment() {
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 
-		binding.ivEdit.setOnClickListener {
-			val builder = AlertDialog.Builder(requireContext())
 
-			val dialogBinding = MypageEditDialogBinding.inflate(layoutInflater)
+		binding.ivEdit.setOnClickListener {
+
+			val builder = AlertDialog.Builder(requireContext())
+			dialogBinding = MypageEditDialogBinding.inflate(layoutInflater)
 
 
 			val editName: EditText = dialogBinding.dialogEditName
 			val editEmail: EditText = dialogBinding.dialogEditEmail
 			val editNumber: EditText = dialogBinding.dialogEditNumber
-
 			val editBirth : EditText = dialogBinding.dialogEditBirthDay
 
 			//현재 설정한 정보 다이얼로그 Edithint에 띄우기
 			editName.hint = (binding.tvMyName).text
 			editEmail.hint = (binding.tvMyEmail).text
 			editNumber.hint = (binding.tvMyPhoneNum).text
+
 			builder.setView(dialogBinding.root)
 
 			dialogBinding.ivEditProfileImage.setOnClickListener {
@@ -66,6 +69,7 @@ class MyPage : Fragment() {
 			}
 
 //			val numFormat = DecimalFormat("###-####-####")
+//			val dateFormat = DecimalFormat("####/##/##")
 //			val rawPhoneNumber = (binding.tvMyPhoneNum.text).toString()
 //			val formattingNum = numFormat.format(rawPhoneNumber)
 
@@ -83,13 +87,15 @@ class MyPage : Fragment() {
 				}
 				try {
 					if (editBirth.text.isNotEmpty()) {
-						val enterDate = editBirth.text.toString()
-						val dateFormat = SimpleDateFormat("yyyy/MM/dd", Locale.getDefault())
+						val enterDate = (editBirth.text).toString()
+						val dateFormat = SimpleDateFormat("yyyy/mm/dd", Locale.getDefault())
 						val parsedDate = dateFormat.parse(enterDate)
 
 						if (parsedDate != null) {
 							val formattedDate = dateFormat.format(parsedDate)
 							binding.tvMyBirthDay.text = formattedDate
+						} else{
+							Toast.makeText(context,"123",Toast.LENGTH_SHORT).show()
 						}
 
 					}
@@ -104,13 +110,16 @@ class MyPage : Fragment() {
 
 		}
 
+
 	}
 	override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
 		super.onActivityResult(requestCode, resultCode, data)
 
 		if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null) {
 			val selectedImageUri = data.data
+
 			binding.ivMyProfileImage.setImageURI(selectedImageUri)
+			dialogBinding.dialogNowProfileImage.setImageURI(selectedImageUri)
 		}
 	}
 
