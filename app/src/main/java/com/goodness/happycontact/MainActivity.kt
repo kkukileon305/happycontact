@@ -21,18 +21,6 @@ class MainActivity : AppCompatActivity() {
 		super.onCreate(savedInstanceState)
 		setContentView(binding.root)
 
-
-		val bundle = Bundle().apply {
-			putInt("profileImage", R.drawable.break_sparta)
-			putString("name", "파괴하는 르탄이")
-			putBoolean("like", false)
-			putString("phoneNumber", "01012341234")
-		}
-
-		val intent = Intent(this, DetailActivity::class.java)
-		intent.putExtras(bundle)
-		startActivity(intent)
-
 		binding.btnTest.setOnClickListener {
 			val builder = AlertDialog.Builder(this)
 			builder.setTitle("Add contact")
