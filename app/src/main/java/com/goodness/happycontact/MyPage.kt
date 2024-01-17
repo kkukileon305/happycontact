@@ -1,5 +1,6 @@
 package com.goodness.happycontact
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -22,6 +23,7 @@ import java.util.Locale
 
 class MyPage : Fragment() {
 	private lateinit var binding: FragmentMyPageBinding
+	private val PICK_IMAGE_REQUEST = 1
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
@@ -48,7 +50,7 @@ class MyPage : Fragment() {
 			val editName: EditText = dialogBinding.dialogEditName
 			val editEmail: EditText = dialogBinding.dialogEditEmail
 			val editNumber: EditText = dialogBinding.dialogEditNumber
-			val profileImage : ImageView = dialogBinding.dialogNowProfileImage
+
 			val editBirth : EditText = dialogBinding.dialogEditBirthDay
 
 			//현재 설정한 정보 다이얼로그 Edithint에 띄우기
@@ -60,7 +62,7 @@ class MyPage : Fragment() {
 			dialogBinding.ivEditProfileImage.setOnClickListener {
 				val intent = Intent(Intent.ACTION_PICK)
 				intent.type = "image/*"
-				startActivity(intent)
+				startActivityForResult(intent, PICK_IMAGE_REQUEST)
 			}
 
 //			val numFormat = DecimalFormat("###-####-####")
@@ -102,6 +104,14 @@ class MyPage : Fragment() {
 
 		}
 
+	}
+	override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+		super.onActivityResult(requestCode, resultCode, data)
+
+		if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null) {
+			val selectedImageUri = data.data
+			binding.ivMyProfileImage.setImageURI(selectedImageUri)
+		}
 	}
 
 
