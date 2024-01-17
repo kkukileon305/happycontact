@@ -98,13 +98,14 @@
                 app:cardCornerRadius="20dp">
 
                 <TextView
+                    android:id="@+id/tv_myBirthDay"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="24sp"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="45dp"
                     android:textStyle="bold"
-                    android:text="이벤트"/>
+                    android:text="2023/01/17"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -113,7 +114,7 @@
                     android:layout_marginTop="10dp"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:text="이벤트"/>
+                    android:text="내 생년월일"/>
 
             </androidx.cardview.widget.CardView>
 

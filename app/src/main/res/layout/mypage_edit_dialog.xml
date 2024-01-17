@@ -12,6 +12,7 @@
         android:text="내 프로필 수정"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="20dp"
+        android:textStyle="bold"
         android:textSize="24sp"/>
 
 
@@ -53,7 +54,7 @@
         android:id="@+id/dialog_editName"
         android:layout_width="230dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="50dp"
         android:gravity="center"
         android:hint="내 이름을 입력해 주세요"
         android:textSize="16sp"
@@ -66,9 +67,9 @@
         android:id="@+id/dialog_editEmail"
         android:layout_width="230dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        app:layout_constraintStart_toStartOf="@id/dialog_editName"
-        app:layout_constraintTop_toBottomOf="@id/dialog_editName"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@id/dialog_editNumber"
+        app:layout_constraintTop_toBottomOf="@id/dialog_editNumber"
         android:inputType="textEmailSubject"
         android:hint="이메일을 입력해 주세요"
         android:textSize="16sp"
@@ -78,13 +79,30 @@
         android:id="@+id/dialog_editNumber"
         android:layout_width="230dp"
         android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/dialog_editName"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_editName"
+        android:textSize="16sp"
+        android:hint="내 번호를 입력해 주세요"
+        android:inputType="numberDecimal"
+        android:gravity="center"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:id="@+id/dialog_editBirthDay"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="@+id/dialog_editEmail"
         app:layout_constraintTop_toBottomOf="@+id/dialog_editEmail"
-        android:textSize="16dp"
-        android:hint="내 번호를 입력해 주세요"
-        android:inputType="phone"
+        android:layout_marginTop="20dp"
+        android:hint="YYYY/MM/DD "
+        android:inputType="date"
         android:gravity="center"
-        android:layout_marginTop="30dp"/>
+        android:textSize="16sp"/>
+
+
+
+
+
 
 
 
@@ -94,7 +112,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/dialog_editNumber"
-        android:layout_marginTop="50dp"/>
+        android:layout_marginTop="180dp"/>
 
 
 
