@@ -14,23 +14,24 @@ import de.hdodenhof.circleimageview.CircleImageView
 import com.google.android.material.tabs.TabLayoutMediator
 
 class MainActivity : AppCompatActivity() {
-	private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
+    private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(binding.root)
+
+        addButtonPressed()
+        setSwiper()
 
 
-	override fun onCreate(savedInstanceState: Bundle?) {
-		super.onCreate(savedInstanceState)
-		setContentView(binding.root)
+    }
 
-		addButtonPressed()
-		setSwiper()
-	}
+    private fun addButtonPressed() {
+        binding.btnTest.setOnClickListener {
+            AddFrag().show(supportFragmentManager, "AddFrag")
 
-	private fun addButtonPressed(){
-		binding.btnTest.setOnClickListener {
-			AddFrag().show(supportFragmentManager,"AddFrag")
-
-		}
-	}
+        }
+    }
 
     private fun setSwiper() {
         val viewPager = binding.pager
