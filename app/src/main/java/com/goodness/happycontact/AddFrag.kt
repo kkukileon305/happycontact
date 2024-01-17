@@ -64,6 +64,7 @@ class AddFrag(val handler: () -> Unit) : DialogFragment() {
 			Log.d("행동확인", "이메일 형식 확인 통과함")
 
 
+
 			// >>> 방법 2개 수정 1개
 			/*            val addNewContact = Contact(
 											id = dataList.size + 1,
@@ -104,6 +105,7 @@ class AddFrag(val handler: () -> Unit) : DialogFragment() {
 		_binding = null
 		Log.d("행동확인", "다이얼로그 Destroy")
 	}
+
 }
 
 
