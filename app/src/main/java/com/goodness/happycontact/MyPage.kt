@@ -8,12 +8,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.goodness.happycontact.databinding.FragmentMyPageBinding
 import com.goodness.happycontact.databinding.MypageEditDialogBinding
 import java.lang.Exception
-
 import java.text.SimpleDateFormat
 import java.util.Locale
 
@@ -88,14 +86,16 @@ class MyPage : Fragment() {
 				try {
 					if (editBirth.text.isNotEmpty()) {
 						val enterDate = (editBirth.text).toString()
-						val dateFormat = SimpleDateFormat("yyyy/mm/dd", Locale.getDefault())
+						val dateFormat = if (enterDate.contains("/")) {
+							SimpleDateFormat("yyyy/MM/dd", Locale.getDefault())
+						} else {
+							SimpleDateFormat("yyyyMMdd", Locale.getDefault())
+						}
 						val parsedDate = dateFormat.parse(enterDate)
 
 						if (parsedDate != null) {
 							val formattedDate = dateFormat.format(parsedDate)
-							binding.tvMyBirthDay.text = formattedDate
-						} else{
-							Toast.makeText(context,"123",Toast.LENGTH_SHORT).show()
+							binding.tvMyBirthDay.text = formattedDate.toString()
 						}
 
 					}
