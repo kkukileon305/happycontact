@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.goodness.happycontact.databinding.FragmentMyPageBinding
 import com.goodness.happycontact.databinding.MypageEditDialogBinding
@@ -15,6 +16,8 @@ import java.lang.Exception
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.Locale
+
+
 
 
 class MyPage : Fragment() {
@@ -101,4 +104,6 @@ class MyPage : Fragment() {
 
 	}
 
+
 }
+
