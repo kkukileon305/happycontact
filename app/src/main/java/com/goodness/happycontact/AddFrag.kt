@@ -64,8 +64,9 @@ class AddFrag : DialogFragment() {
             Log.d("행동확인","이메일 형식 확인 통과함")
 
 
-            // >>> 방법 2개 수정 1개
-/*            val addNewContact = Contact(
+            // >>> 방법 3개 중 1개 사용 가능
+            /* //리스트 사용하는 방식과 다름 -> 사용불가
+            val addNewContact = Contact(
                 id = dataList.size + 1,
                 profileImage = R.drawable.ic_launcher_foreground, // 일단 임시 이미지 추가
                 name = name,
@@ -83,12 +84,11 @@ class AddFrag : DialogFragment() {
                 phoneNumber = num,
                 like = false
             )
-            Contact.DATA.add(addNewContact)
-
-
+            Contact.DATA.add(addNewContact) //Contact형식 그대로 전달
 
             //or
-            //dataList.add(Contact(dataList.size + 1, img, name, mail, num, false))
+            //리스트 사용하는 방식과 다름 -> 사용불가, dataList.add(Contact(dataList.size + 1, img, name, mail, num, false))
+            //Contact.DATA.add(Contact(Contact.DATA.size+1, R.drawable.ic_launcher_foreground, name, mail, num, false))
             // <<<
             dismiss()
             Log.d("행동확인","확인 버튼 눌림")
