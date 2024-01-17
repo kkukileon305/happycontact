@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 			AddFrag {
 				val listFragment = supportFragmentManager.findFragmentByTag("f0") as ContactList
 
-				listFragment.updateData()
+				listFragment.addData()
 			}.show(supportFragmentManager, "AddFrag")
 		}
 	}

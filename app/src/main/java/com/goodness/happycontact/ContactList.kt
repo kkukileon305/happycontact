@@ -10,13 +10,8 @@ import com.goodness.happycontact.databinding.FragmentContactListBinding
 
 class ContactList : Fragment() {
 	private lateinit var binding: FragmentContactListBinding
+	private lateinit var contactListAdapter: ContactListAdapter
 
-	private val contactListAdapter by lazy {
-		ContactListAdapter(requireContext(), Contact.DATA) { position ->
-			val clickedData = Contact.DATA[position]
-			clickedData.like = !clickedData.like
-		}
-	}
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
@@ -30,13 +25,22 @@ class ContactList : Fragment() {
 
 		val recyclerView = binding.rvContactList
 
+		contactListAdapter = ContactListAdapter(requireContext(), Contact.DATA) { position ->
+			val clickedData = Contact.DATA[position]
+			clickedData.like = !clickedData.like
+//			contactListAdapter.updateData(Contact.DATA)
+		}
+
 		recyclerView.adapter = contactListAdapter
 		recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
 		return binding.root
 	}
 
-	fun updateData() {
+	fun addData() {
 		contactListAdapter.notifyItemInserted(Contact.DATA.size - 1)
+	}
+	fun updateData() {
+
 	}
 }
