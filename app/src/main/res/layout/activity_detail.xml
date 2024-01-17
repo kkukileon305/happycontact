@@ -173,7 +173,7 @@
         app:layout_constraintTop_toBottomOf="@+id/iconItemCardView3">
 
         <View
-            android:id="@+id/detailEvent"
+            android:id="@+id/detailEMAIL"
             android:layout_width="400dp"
             android:layout_height="60dp"
             android:background="#E8B6DE"
@@ -183,6 +183,33 @@
             app:layout_constraintEnd_toEndOf="@+id/iconItemCardView4"
             app:layout_constraintStart_toStartOf="@+id/iconItemCardView4"
             app:layout_constraintTop_toTopOf="@+id/iconItemCardView4" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/iconItemCardView5"
+        android:layout_width="400dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#FFFFFF"
+        app:cardCornerRadius="8dp"
+
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iconItemCardView4">
+
+        <View
+            android:id="@+id/detailMemo"
+            android:layout_width="400dp"
+            android:layout_height="60dp"
+            android:background="#E8B6DE"
+            android:backgroundTint="#FFFFFF"
+            android:backgroundTintMode="multiply"
+            app:layout_constraintBottom_toBottomOf="@+id/iconItemCardView5"
+            app:layout_constraintEnd_toEndOf="@+id/iconItemCardView5"
+            app:layout_constraintStart_toStartOf="@+id/iconItemCardView5"
+            app:layout_constraintTop_toTopOf="@+id/iconItemCardView5" />
 
     </androidx.cardview.widget.CardView>
 
@@ -219,7 +246,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginBottom="20dp"
-        android:text="Mobile"
+        android:text="EMAIL"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/iconItemCardView4"
@@ -233,12 +260,39 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="6dp"
-        android:text="010-222-3333"
+        android:text="sparta@test.com"
         android:textColor="#716C6C"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/iconItemCardView4"
         app:layout_constraintStart_toStartOf="@+id/iconItemCardView4"
         app:layout_constraintTop_toBottomOf="@+id/tvMobile2" />
+
+    <TextView
+        android:id="@+id/tvMobile3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="20dp"
+        android:text="EVENT"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/iconItemCardView5"
+        app:layout_constraintStart_toStartOf="@+id/iconItemCardView5"
+        app:layout_constraintTop_toTopOf="@+id/iconItemCardView5" />
+
+    <TextView
+        android:id="@+id/tvNumber3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="6dp"
+        android:text="직장상사"
+        android:textColor="#716C6C"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/iconItemCardView5"
+        app:layout_constraintStart_toStartOf="@+id/iconItemCardView5"
+        app:layout_constraintTop_toBottomOf="@+id/tvMobile3" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
