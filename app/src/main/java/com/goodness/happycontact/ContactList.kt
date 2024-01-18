@@ -28,7 +28,6 @@ class ContactList : Fragment() {
 		contactListAdapter = ContactListAdapter(requireContext(), Contact.DATA) { position ->
 			val clickedData = Contact.DATA[position]
 			clickedData.like = !clickedData.like
-//			contactListAdapter.updateData(Contact.DATA)
 		}
 
 		recyclerView.adapter = contactListAdapter
