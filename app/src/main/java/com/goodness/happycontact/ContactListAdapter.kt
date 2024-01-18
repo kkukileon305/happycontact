@@ -2,6 +2,7 @@ package com.goodness.happycontact
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -33,7 +34,13 @@ class ContactListAdapter(
 		val data = dataList[position]
 
 		holder.apply {
-			icon.setImageResource(data.profileImage)
+
+			if (data.profileImageUri.isNullOrBlank() ){
+				icon.setImageResource(data.profileImage)
+			}else{
+				icon.setImageURI(Uri.parse(data.profileImageUri))
+			}
+
 			contactName.text = data.name
 
 			if (data.like) {

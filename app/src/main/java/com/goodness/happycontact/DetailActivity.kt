@@ -1,5 +1,6 @@
 package com.goodness.happycontact
 
+import android.net.Uri
 import android.os.Bundle
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
@@ -17,32 +18,32 @@ class DetailActivity : AppCompatActivity() {
         val receivedBundle = receivedIntent.extras
         val ivBack: ImageView = findViewById(R.id.ivBack)
 
-        // Bundle에서 연락처 정보 추출
+//         Bundle에서 연락처 정보 추출
         contact = receivedBundle?.getParcelable<Contact>(Contact.CONTACT_KEY)
+//        val contact = receivedBundle?.getParcelable<Contact>(Contact.CONTACT_KEY)
 
 
         // 연락처 정보가 null이 아닌 경우에만 표시
-        if (contact != null) {
-            // 연락처 정보를 화면에 표시하는 작업 수행
-
-            binding.textView.text = "${contact?.name}"
-            binding.tvMobile2.text = "${contact?.phoneNumber}"
-            binding.tvEmail2.text = "${contact?.email}"
-
-
+        contact?.let {
             val profileImageView = binding.imageView
-            profileImageView.setImageResource(contact?.profileImage ?: 0)
+            if (it.profileImageUri.isNullOrBlank()){
+                profileImageView.setImageResource(it.profileImage)
+            }else{
+                profileImageView.setImageURI(Uri.parse(it.profileImageUri))
+            }
+            binding.textView.text = it.name
+            binding.tvMobile2.text = it.phoneNumber
+            binding.tvEmail2.text = it.email
+        }
+
             updateLikeButtonImage()
 
             // 좋아요 상태 토글
-
             binding.ivLike.setOnClickListener {
                 contact?.like = !(contact?.like ?: false)
                 // 좋아요 상태에 따라 이미지 설정
                 updateLikeButtonImage()
             }
-        }
-
         // ImageView에 클릭 리스너 추가
         ivBack.setOnClickListener {
             // 클릭 시 뒤로 가는 동작 수행
@@ -60,6 +61,3 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 }
-
-
-
