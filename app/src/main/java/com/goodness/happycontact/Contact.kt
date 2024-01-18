@@ -12,7 +12,6 @@ data class Contact(
 	val email: String,
 	val phoneNumber: String,
 	var like: Boolean
-
 ) : Parcelable {
 	companion object {
 		val DATA = mutableListOf(

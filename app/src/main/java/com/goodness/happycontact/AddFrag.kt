@@ -13,7 +13,7 @@ import com.goodness.happycontact.databinding.AddContactDialogBinding
 import android.util.Patterns
 import android.view.WindowManager
 
-class AddFrag(val handler: () -> Unit) : DialogFragment() {
+class AddFrag(val onAdd: () -> Unit) : DialogFragment() {
 	private var _binding: AddContactDialogBinding? = null
 	private val binding get() = _binding!!
 //    private val dataList = mutableListOf<Contact>()
@@ -64,7 +64,6 @@ class AddFrag(val handler: () -> Unit) : DialogFragment() {
 			Log.d("행동확인", "이메일 형식 확인 통과함")
 
 
-
 			// >>> 방법 2개 수정 1개
 			/*            val addNewContact = Contact(
 											id = dataList.size + 1,
@@ -85,7 +84,7 @@ class AddFrag(val handler: () -> Unit) : DialogFragment() {
 				like = false
 			)
 			Contact.DATA.add(addNewContact)
-			handler()
+			onAdd()
 
 			//or
 			//dataList.add(Contact(dataList.size + 1, img, name, mail, num, false))
