@@ -1,5 +1,7 @@
 package com.goodness.happycontact
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
@@ -36,30 +38,49 @@ class DetailActivity : AppCompatActivity() {
 
             // 좋아요 상태 토글
 
+//            binding.ivLike.setOnClickListener {
+//                contact?.like = !(contact?.like ?: false)
+//                // 좋아요 상태에 따라 이미지 설정
+//                updateLikeButtonImage()
+//            }
+//        }
+
             binding.ivLike.setOnClickListener {
-                contact?.like = !(contact?.like ?: false)
-                // 좋아요 상태에 따라 이미지 설정
-                updateLikeButtonImage()
+                contact?.let {
+
+                        it.like = !(it.like ?: false)
+
+                        // 업데이트된 Contact 정보를 ContactList로 전달
+                        val returnIntent = Intent()
+                        returnIntent.putExtra(Contact.CONTACT_KEY, it)
+                        setResult(Activity.RESULT_OK, returnIntent)
+
+                        // 좋아요 상태에 따라 이미지 설정
+                        updateLikeButtonImage()
+                    }
+                }
+
+
+                // ImageView에 클릭 리스너 추가
+                ivBack.setOnClickListener {
+                    // 클릭 시 뒤로 가는 동작 수행
+                    onBackPressed()
+                }
+            }
+
+        }
+        // 좋아요 버튼 이미지 업데이트 함수
+        private fun updateLikeButtonImage() {
+            if (contact?.like == true) {
+                binding.ivLike.setImageResource(R.drawable.heart_filled)
+            } else {
+                binding.ivLike.setImageResource(R.drawable.heart)
             }
         }
-
-        // ImageView에 클릭 리스너 추가
-        ivBack.setOnClickListener {
-            // 클릭 시 뒤로 가는 동작 수행
-            onBackPressed()
-        }
     }
 
 
-    // 좋아요 버튼 이미지 업데이트 함수
-    private fun updateLikeButtonImage() {
-        if (contact?.like == true) {
-            binding.ivLike.setImageResource(R.drawable.heart_filled)
-        } else {
-            binding.ivLike.setImageResource(R.drawable.heart)
-        }
-    }
-}
+
 
 
 

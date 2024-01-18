@@ -5,6 +5,7 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
+
 data class Contact(
 	val id: Int,
 	val profileImage: Int,
@@ -13,7 +14,11 @@ data class Contact(
 	val phoneNumber: String,
 	var like: Boolean
 
+
+
 ) : Parcelable {
+
+
 	companion object {
 		val DATA = mutableListOf(
 			Contact(
@@ -143,3 +148,6 @@ data class Contact(
 }
 
 // Contact.DATA해서 데이터 가져다가 쓰세요
+
+
+
