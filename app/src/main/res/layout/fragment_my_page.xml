@@ -1,14 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context=".MyPage">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MyPage">
 
-  <!-- TODO: Update blank fragment layout -->
-  <TextView
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"
-          android:text="@string/hello_blank_fragment"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+
+            <ImageView
+                android:id="@+id/iv_myProfileImage"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:src="@drawable/sparta"
+                android:scaleType="fitXY"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+            <TextView
+                android:id="@+id/tv_myName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="스파르탄"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textStyle="bold"
+                android:background="@drawable/gradient_effect"
+                android:gravity="center"
+                app:layout_constraintBottom_toBottomOf="@id/iv_myProfileImage"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+
+            <ImageView
+                android:id="@+id/iv_edit"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/edit_pencil"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="40dp"
+                app:layout_constraintBottom_toTopOf="@id/cv_num"
+                android:layout_marginBottom="10dp"/>
+
+
+
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_num"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_myProfileImage"
+                android:backgroundTint="@color/white"
+                android:layout_marginTop="40dp"
+                android:layout_width="400dp"
+                android:layout_height="90dp"
+                app:cardCornerRadius="20dp">
+
+                <TextView
+                    android:id="@+id/tv_myPhoneNum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="24sp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="45dp"
+                    android:textStyle="bold"
+                    android:text="010-1234-5678"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:text="나의 전화번호"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_event"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cv_email"
+                android:backgroundTint="@color/white"
+                android:layout_marginTop="20dp"
+                android:layout_width="400dp"
+                android:layout_height="90dp"
+                app:cardCornerRadius="20dp">
+
+                <TextView
+                    android:id="@+id/tv_myBirthDay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="24sp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="45dp"
+                    android:textStyle="bold"
+                    android:text="2023/01/17"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:text="내 생년월일"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_email"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cv_num"
+                android:backgroundTint="@color/white"
+                android:layout_marginTop="20dp"
+                android:layout_width="400dp"
+                android:layout_height="90dp"
+                app:cardCornerRadius="20dp">
+
+                <TextView
+                    android:id="@+id/tv_myEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="24sp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="45dp"
+                    android:textStyle="bold"
+                    android:text="sparta123@sparta.com"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:text="나의 이메일"/>
+
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
+
+
+
+
 
 </FrameLayout>
