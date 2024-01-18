@@ -11,7 +11,7 @@ import com.goodness.happycontact.databinding.ContactItemBinding
 
 class ContactListAdapter(
 	private val context: Context,
-	private val dataList: List<Contact>,
+	private var dataList: List<Contact>,
 	private val onLikeButtonClick: (Int) -> Unit
 ) : RecyclerView.Adapter<ContactListAdapter.Holder>() {
 	inner class Holder(private val binding: ContactItemBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -56,5 +56,10 @@ class ContactListAdapter(
 				context.startActivity(intent)
 			}
 		}
+
+		}
+	fun updateData(newData: List<Contact>) {
+		dataList = newData  // dataList을 새로운 데이터로 갱신
+		notifyDataSetChanged()
 	}
 }
