@@ -1,24 +1,18 @@
 package com.goodness.happycontact
 
-import android.content.res.Resources
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-
 data class Contact(
 	val id: Int,
 	val profileImage: Int,
-	var name: String,
+	val profileImageUri: String? = null,
+	val name: String,
 	val email: String,
 	val phoneNumber: String,
 	var like: Boolean
-
-
-
 ) : Parcelable {
-
-
 	companion object {
 		val DATA = mutableListOf(
 			Contact(
@@ -147,7 +141,4 @@ data class Contact(
 	}
 }
 
-// Contact.DATA해서 데이터 가져다가 쓰세요
-
-
-
+// Contact.DATA해서 데이터 가져다가 쓰세요*/

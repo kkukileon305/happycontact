@@ -37,9 +37,10 @@ class ContactList : Fragment() {
 		return binding.root
 	}
 
-	fun addData() {
+	fun notifyContactInsertedData() {
 		contactListAdapter.notifyItemInserted(Contact.DATA.size - 1)
 	}
+
 	fun updateData() {
 
 	}
