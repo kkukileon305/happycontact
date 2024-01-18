@@ -15,7 +15,7 @@ import android.util.Patterns
 import android.view.WindowManager
 import androidx.activity.result.contract.ActivityResultContracts
 
-class AddFrag(val handler: () -> Unit) : DialogFragment() {
+class AddFrag(val onAdd: () -> Unit) : DialogFragment() {
 	private var _binding: AddContactDialogBinding? = null
 	private val binding get() = _binding!!
 	private var selectedImageUri: Uri? = null
@@ -70,6 +70,7 @@ class AddFrag(val handler: () -> Unit) : DialogFragment() {
 				return@setOnClickListener //아래 코드 실행하지 않고 처음으로 감
 			}
 
+
 			val addNewContact = Contact(
 				id = Contact.DATA.size + 1,
 				profileImage = R.drawable.ic_launcher_foreground, // 임시 이미지 추가
@@ -81,7 +82,7 @@ class AddFrag(val handler: () -> Unit) : DialogFragment() {
 			)
 
 			Contact.DATA.add(addNewContact)
-			handler()
+			onAdd()
 
 			Toast.makeText(requireContext(), "${name}님의 연락처가 추가되었습니다", Toast.LENGTH_SHORT).show()
 			dismiss()
