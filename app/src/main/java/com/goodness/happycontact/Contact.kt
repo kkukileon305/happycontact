@@ -141,7 +141,7 @@ data class Contact(
 				like = false,
 				phoneNumber = "01011112222"
 			),
-		).sortedBy { it.name[0] }.toMutableList()
+		).sortedBy { it.name }.toMutableList()
 
 		val CONTACT_KEY = "CONTACT"
 	}
