@@ -14,29 +14,37 @@ class DetailAdapter(private val contactList: List<Contact>) : RecyclerView.Adapt
     }
 
     override fun getItemCount(): Int {
-        return contactList.size * 5
+        return contactList.size * 7
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val contact = contactList[position / 5]
-        when (position % 5) {
+        val contact = contactList[position / 7]
+        when (position % 7) {
             0 -> {
+                holder.title.text = "전화번호"
+                holder.des.text = contact.phoneNumber
+            }
+            1 -> {
+                holder.title.text = "이메일"
+                holder.des.text = contact.email
+            }
+            2 -> {
                 holder.title.text = "주소"
                 holder.des.text = contact.address
             }
-            1 -> {
+            3 -> {
                 holder.title.text = "그룹"
                 holder.des.text = contact.relationship
             }
-            2 -> {
+            4 -> {
                 holder.title.text = "이벤트"
                 holder.des.text = contact.bigDay
             }
-            3 -> {
+            5 -> {
                 holder.title.text = "생일"
                 holder.des.text = contact.birthDay
             }
-            4 -> {
+            6 -> {
                 holder.title.text = "메모"
                 holder.des.text = contact.memo
             }

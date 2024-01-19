@@ -35,8 +35,20 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+
         contact = intent.getParcelableExtra<Contact>(Contact.CONTACT_KEY)
         val ivBack: ImageView = findViewById(R.id.ivBack)
+
+        contact?.let {
+            val profileImageView = binding.imageView
+            if (it.profileImageUri.isNullOrBlank()) {
+                profileImageView.setImageResource(it.profileImage)
+            } else {
+                profileImageView.setImageURI(Uri.parse(it.profileImageUri))
+            }
+            binding.tvNameTitle.text = it.name
+
+        }
 
         updateLikeButtonImage()
 

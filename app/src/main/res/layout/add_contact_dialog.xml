@@ -114,7 +114,7 @@
             android:textStyle="bold"
             android:drawablePadding="12dp"
             android:drawableStart="@drawable/ic_dig_group"
-            android:inputType="textEmailAddress"/>
+            android:inputType="text"/>
 
         <EditText
             android:id="@+id/editAdress"
@@ -130,7 +130,7 @@
             android:textStyle="bold"
             android:drawablePadding="12dp"
             android:drawableStart="@drawable/ic_dig_address"
-            android:inputType="textEmailAddress"/>
+            android:inputType="text"/>
 
         <EditText
             android:id="@+id/editBirth"
@@ -146,7 +146,7 @@
             android:textStyle="bold"
             android:drawablePadding="12dp"
             android:drawableStart="@drawable/ic_dig_birth"
-            android:inputType="textEmailAddress"/>
+            android:inputType="text"/>
 
         <EditText
             android:id="@+id/editEvent"
@@ -162,7 +162,7 @@
             android:textStyle="bold"
             android:drawablePadding="12dp"
             android:drawableStart="@drawable/ic_dig_event"
-            android:inputType="textEmailAddress"/>
+            android:inputType="text"/>
 
         <EditText
             android:id="@+id/editMemo"
@@ -178,7 +178,7 @@
             android:textStyle="bold"
             android:drawablePadding="12dp"
             android:drawableStart="@drawable/ic_dig_memo"
-            android:inputType="textEmailAddress"/>
+            android:inputType="text"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
