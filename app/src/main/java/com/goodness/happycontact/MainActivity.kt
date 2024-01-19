@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
 	}
 
 	private fun addButtonPressed() {
-		binding.btnTest.setOnClickListener {
+		binding.btnAddContact.setOnClickListener {
 			AddFrag {
 				val listFragment = supportFragmentManager.findFragmentByTag("f0") as ContactList
 
