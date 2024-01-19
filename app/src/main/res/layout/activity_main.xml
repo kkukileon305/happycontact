@@ -46,7 +46,7 @@
         android:backgroundTint="#FFFAF9"
         app:cardElevation="5dp"
         app:cardCornerRadius="55dp"
-        android:layout_margin="15dp"
+        android:layout_margin="20dp"
         app:layout_constraintBottom_toTopOf="@id/tab_layout"
         app:layout_constraintEnd_toEndOf="parent">
 
