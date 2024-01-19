@@ -9,13 +9,13 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
+        android:layout_height="wrap_content"
+        android:background="@color/white">
 
         <View
             android:id="@+id/view"
             android:layout_width="411dp"
-            android:layout_height="70dp"
+            android:layout_height="60dp"
             android:background="#F4511E"
             android:backgroundTint="#E10846"
             android:backgroundTintMode="src_atop"
@@ -24,518 +24,156 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="400dp"
-            android:foreground="@drawable/gradient_drawable"
-            android:scaleType="centerCrop"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view"
-            app:srcCompat="@drawable/monkey_sparta" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="240dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="360dp"
-            android:background="@null"
-            android:gravity="center"
-            android:text="Monkey Sparta"
-            android:textSize="24sp"
-            android:textStyle="normal|bold"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/imageView" />
-
-        <ImageView
-            android:id="@+id/ivLike"
+            android:id="@+id/ivBack"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginStart="-20dp"
-            android:src="@drawable/heart_filled"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView"
-            app:layout_constraintStart_toEndOf="@+id/textView"
-            app:layout_constraintTop_toTopOf="@+id/textView" />
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/iconItemCardView1"
-            android:layout_width="170dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="15dp"
-            android:backgroundTint="#E10846"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="0dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView">
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/iconItemCardView2"
-            android:layout_width="170dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="10dp"
-            android:backgroundTint="#E10846"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="0dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView">
-
-            <View
-                android:id="@+id/btnMessage"
-                android:layout_width="170dp"
-                android:layout_height="60dp"
-                android:backgroundTint="#E10846"
-                android:backgroundTintMode="multiply"
-                app:layout_constraintBottom_toBottomOf="@+id/iconItemCardView2"
-                app:layout_constraintEnd_toEndOf="@+id/iconItemCardView2"
-                app:layout_constraintStart_toStartOf="@+id/iconItemCardView2"
-                app:layout_constraintTop_toTopOf="@+id/iconItemCardView2" />
-
-
-        </androidx.cardview.widget.CardView>
-
-        <TextView
-            android:id="@+id/btnText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="MESSAGE"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            android:textStyle="normal"
-            app:layout_constraintBottom_toBottomOf="@+id/iconItemCardView1"
-            app:layout_constraintEnd_toEndOf="@+id/iconItemCardView1"
-            app:layout_constraintStart_toStartOf="@+id/iconItemCardView1"
-            app:layout_constraintTop_toTopOf="@+id/iconItemCardView1" />
-
-        <TextView
-            android:id="@+id/btnText2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="CALL"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            android:textStyle="normal"
-            app:layout_constraintBottom_toBottomOf="@+id/iconItemCardView2"
-            app:layout_constraintEnd_toEndOf="@+id/iconItemCardView2"
-            app:layout_constraintStart_toStartOf="@+id/iconItemCardView2"
-            app:layout_constraintTop_toTopOf="@+id/iconItemCardView2" />
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="-3dp"
+            app:layout_constraintBottom_toBottomOf="@id/view"
+            app:layout_constraintStart_toStartOf="@id/view"
+            app:layout_constraintTop_toTopOf="@id/view"
+            app:srcCompat="@android:drawable/ic_menu_revert" />
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="160dp"
             android:layout_height="40dp"
-            android:layout_marginStart="60dp"
+            android:layout_marginStart="10dp"
             android:gravity="center|start"
             android:text="Sparta Contacts"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/view"
-            app:layout_constraintStart_toStartOf="@+id/view"
-            app:layout_constraintTop_toTopOf="@+id/view" />
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/iconItemCardView3"
-            android:layout_width="400dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="#FFFFFF"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="0dp"
-
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iconItemCardView2">
-
-            <View
-                android:id="@+id/detailNumber"
-                android:layout_width="400dp"
-                android:layout_height="60dp"
-                android:background="#E8B6DE"
-                android:backgroundTint="#FFFFFF"
-                android:backgroundTintMode="multiply"
-                app:layout_constraintBottom_toBottomOf="@+id/iconItemCardView3"
-                app:layout_constraintEnd_toEndOf="@+id/iconItemCardView3"
-                app:layout_constraintStart_toStartOf="@+id/iconItemCardView3"
-                app:layout_constraintTop_toTopOf="@+id/iconItemCardView3" />
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/iconItemCardView4"
-            android:layout_width="400dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="#FFFFFF"
-            app:cardCornerRadius="8dp"
-
-            app:cardElevation="0dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iconItemCardView3">
-
-            <View
-                android:id="@+id/detailEMAIL"
-                android:layout_width="400dp"
-                android:layout_height="60dp"
-                android:background="#E8B6DE"
-                android:backgroundTint="#FFFFFF"
-                android:backgroundTintMode="multiply"
-                app:layout_constraintBottom_toBottomOf="@+id/iconItemCardView4"
-                app:layout_constraintEnd_toEndOf="@+id/iconItemCardView4"
-                app:layout_constraintStart_toStartOf="@+id/iconItemCardView4"
-                app:layout_constraintTop_toTopOf="@+id/iconItemCardView4" />
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/iconItemCardView5"
-            android:layout_width="400dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="#FFFFFF"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="0dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iconItemCardView4">
-
-            <View
-                android:id="@+id/detailRelationship"
-                android:layout_width="400dp"
-                android:layout_height="60dp"
-                android:background="#E8B6DE"
-                android:backgroundTint="#FFFFFF"
-                android:backgroundTintMode="multiply"
-                app:layout_constraintBottom_toBottomOf="@+id/iconItemCardView5"
-                app:layout_constraintEnd_toEndOf="@+id/iconItemCardView5"
-                app:layout_constraintStart_toStartOf="@+id/iconItemCardView5"
-                app:layout_constraintTop_toTopOf="@+id/iconItemCardView5" />
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/iconItemCardView6"
-            android:layout_width="400dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="#FFFFFF"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="0dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iconItemCardView5">
-
-            <View
-                android:id="@+id/detailAd"
-                android:layout_width="400dp"
-                android:layout_height="60dp"
-                android:background="#E8B6DE"
-                android:backgroundTint="#FFFFFF"
-                android:backgroundTintMode="multiply"
-                app:layout_constraintBottom_toBottomOf="@+id/iconItemCardView6"
-                app:layout_constraintEnd_toEndOf="@+id/iconItemCardView6"
-                app:layout_constraintStart_toStartOf="@+id/iconItemCardView6"
-                app:layout_constraintTop_toTopOf="@+id/iconItemCardView6" />
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/iconItemCardView7"
-            android:layout_width="400dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="#FFFFFF"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="0dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iconItemCardView6">
-
-            <View
-                android:id="@+id/detailMemo"
-                android:layout_width="400dp"
-                android:layout_height="60dp"
-                android:background="#E8B6DE"
-                android:backgroundTint="#FFFFFF"
-                android:backgroundTintMode="multiply"
-                app:layout_constraintBottom_toBottomOf="@+id/iconItemCardView7"
-                app:layout_constraintEnd_toEndOf="@+id/iconItemCardView7"
-                app:layout_constraintStart_toStartOf="@+id/iconItemCardView7"
-                app:layout_constraintTop_toTopOf="@+id/iconItemCardView7" />
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/iconItemCardView8"
-            android:layout_width="400dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="#FFFFFF"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="0dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iconItemCardView7">
-
-            <View
-                android:id="@+id/detailAnniversary"
-                android:layout_width="400dp"
-                android:layout_height="60dp"
-                android:background="#E8B6DE"
-                android:backgroundTint="#FFFFFF"
-                android:backgroundTintMode="multiply"
-                app:layout_constraintBottom_toBottomOf="@+id/iconItemCardView8"
-                app:layout_constraintEnd_toEndOf="@+id/iconItemCardView8"
-                app:layout_constraintStart_toStartOf="@+id/iconItemCardView8"
-                app:layout_constraintTop_toTopOf="@+id/iconItemCardView8" />
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/iconItemCardView9"
-            android:layout_width="400dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="#FFFFFF"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="0dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iconItemCardView8">
-
-            <View
-                android:id="@+id/detailBirthday"
-                android:layout_width="400dp"
-                android:layout_height="60dp"
-                android:background="#E8B6DE"
-                android:backgroundTint="#FFFFFF"
-                android:backgroundTintMode="multiply"
-                app:layout_constraintBottom_toBottomOf="@+id/iconItemCardView9"
-                app:layout_constraintEnd_toEndOf="@+id/iconItemCardView9"
-                app:layout_constraintStart_toStartOf="@+id/iconItemCardView9"
-                app:layout_constraintTop_toTopOf="@+id/iconItemCardView9" />
-
-        </androidx.cardview.widget.CardView>
-
-
-        <TextView
-            android:id="@+id/tvMobile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginBottom="20dp"
-            android:text="Mobile"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/iconItemCardView3"
-            app:layout_constraintStart_toStartOf="@+id/iconItemCardView3"
-            app:layout_constraintTop_toTopOf="@+id/iconItemCardView3" />
-
-        <TextView
-            android:id="@+id/tvMobile2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="6dp"
-            android:text="010-222-3333"
-            android:textColor="#716C6C"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/iconItemCardView3"
-            app:layout_constraintStart_toStartOf="@+id/iconItemCardView3"
-            app:layout_constraintTop_toBottomOf="@+id/tvMobile" />
-
-        <TextView
-            android:id="@+id/tvEmail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginBottom="20dp"
-            android:text="EMAIL"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/iconItemCardView4"
-            app:layout_constraintStart_toStartOf="@+id/iconItemCardView4"
-            app:layout_constraintTop_toTopOf="@+id/iconItemCardView4" />
-
-        <TextView
-            android:id="@+id/tvEmail2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="6dp"
-            android:text="sparta@test.com"
-            android:textColor="#716C6C"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/iconItemCardView4"
-            app:layout_constraintStart_toStartOf="@+id/iconItemCardView4"
-            app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
-
-        <TextView
-            android:id="@+id/tvRelationship"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginBottom="20dp"
-            android:text="RELATIONSHIP"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/iconItemCardView5"
-            app:layout_constraintStart_toStartOf="@+id/iconItemCardView5"
-            app:layout_constraintTop_toTopOf="@+id/iconItemCardView5" />
-
-        <TextView
-            android:id="@+id/tvRelationship2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="6dp"
-            android:text="직장 상사"
-            android:textColor="#716C6C"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/iconItemCardView5"
-            app:layout_constraintStart_toStartOf="@+id/iconItemCardView5"
-            app:layout_constraintTop_toBottomOf="@+id/tvRelationship" />
-
-        <TextView
-            android:id="@+id/tvAd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginBottom="20dp"
-            android:text="ADDRESS"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/iconItemCardView6"
-            app:layout_constraintStart_toStartOf="@+id/iconItemCardView6"
-            app:layout_constraintTop_toTopOf="@+id/iconItemCardView6" />
-
-        <EditText
-            android:id="@+id/tvAd2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="6dp"
-            android:background="@null"
-            android:text="스파시 르타구 코딩동 클럽번지"
-            android:textColor="#716C6C"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/iconItemCardView6"
-            app:layout_constraintStart_toStartOf="@+id/iconItemCardView6"
-            app:layout_constraintTop_toBottomOf="@+id/tvAd" />
-
-
-
-        <TextView
-            android:id="@+id/tvBirthday"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginBottom="20dp"
-            android:text="BIRTHDAY"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/iconItemCardView7"
-            app:layout_constraintStart_toStartOf="@+id/iconItemCardView7"
-            app:layout_constraintTop_toTopOf="@+id/iconItemCardView7" />
-
-        <TextView
-            android:id="@+id/tvBirthday2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="6dp"
-            android:text="10.20(수)"
-            android:textColor="#716C6C"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/iconItemCardView7"
-            app:layout_constraintStart_toStartOf="@+id/iconItemCardView7"
-            app:layout_constraintTop_toBottomOf="@+id/tvBirthday" />
-
-        <TextView
-            android:id="@+id/tvBigDay"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginBottom="20dp"
-            android:text="BIG DAY"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/iconItemCardView8"
-            app:layout_constraintStart_toStartOf="@+id/iconItemCardView8"
-            app:layout_constraintTop_toTopOf="@+id/iconItemCardView8" />
-
-        <TextView
-            android:id="@+id/tvBigDay2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="6dp"
-            android:text="10.20(수) 회식"
-            android:textColor="#716C6C"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/iconItemCardView8"
-            app:layout_constraintStart_toStartOf="@+id/iconItemCardView8"
-            app:layout_constraintTop_toBottomOf="@+id/tvBigDay" />
-
-
+            app:layout_constraintBottom_toBottomOf="@id/ivBack"
+            app:layout_constraintStart_toEndOf="@id/ivBack"
+            app:layout_constraintTop_toTopOf="@id/ivBack" />
 
         <ImageView
-            android:id="@+id/ivBack"
-            android:layout_width="40dp"
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="400dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view"
+            app:srcCompat="@drawable/monkey_sparta" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:foreground="@drawable/gradient_drawable"
+            app:layout_constraintBottom_toBottomOf="@id/imageView"
+            app:layout_constraintStart_toStartOf="@id/imageView"
+            app:layout_constraintEnd_toEndOf="@id/imageView"/>
+
+        <TextView
+            android:id="@+id/tv_nameTitle"
+            android:layout_width="240dp"
             android:layout_height="40dp"
-            android:layout_marginStart="5dp"
-            app:layout_constraintBottom_toBottomOf="@+id/view"
-            app:layout_constraintStart_toStartOf="@+id/view"
-            app:layout_constraintTop_toTopOf="@+id/view"
-            app:srcCompat="@android:drawable/ic_menu_revert" />
-        <TextView
-            android:id="@+id/tvMemo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginBottom="20dp"
-            android:text="MEMO"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/iconItemCardView9"
-            app:layout_constraintStart_toStartOf="@+id/iconItemCardView9"
-            app:layout_constraintTop_toTopOf="@+id/iconItemCardView9" />
+            android:layout_marginBottom="5dp"
+            android:background="@null"
+            android:gravity="center"
+            android:text="Monkey Sparta"
+            android:textColor="#555564"
+            android:textSize="24sp"
+            android:textStyle="normal|bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:id="@+id/tvMemo2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+        <ImageView
+            android:id="@+id/ivLike"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="6dp"
-            android:text="전화 오면 무시"
-            android:textColor="#716C6C"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/iconItemCardView9"
-            app:layout_constraintStart_toStartOf="@+id/iconItemCardView9"
-            app:layout_constraintTop_toBottomOf="@+id/tvMemo" />
+            android:layout_marginEnd="17dp"
+            android:src="@drawable/ic_heart_filled"
+            app:layout_constraintBottom_toBottomOf="@id/tv_nameTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_nameTitle" />
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/iconItemCardView1"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="3dp"
+            android:backgroundTint="#E10846"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp"
+            app:layout_constraintEnd_toStartOf="@id/iconItemCardView2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView">
+
+            <TextView
+                android:id="@+id/btnText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="MESSAGE"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="normal"
+                app:layout_constraintBottom_toBottomOf="@+id/iconItemCardView1"
+                app:layout_constraintEnd_toEndOf="@+id/iconItemCardView1"
+                app:layout_constraintStart_toStartOf="@+id/iconItemCardView1"
+                app:layout_constraintTop_toTopOf="@+id/iconItemCardView1" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/iconItemCardView2"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="10dp"
+            android:backgroundTint="#E10846"
+            app:layout_goneMarginStart="3dp"
+            android:layout_marginEnd="10dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp"
+            app:layout_constraintBottom_toBottomOf="@id/iconItemCardView1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iconItemCardView1"
+            app:layout_constraintTop_toTopOf="@id/iconItemCardView1">
+
+            <TextView
+                android:id="@+id/btnText2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="CALL"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="normal"
+                app:layout_constraintBottom_toBottomOf="@+id/iconItemCardView2"
+                app:layout_constraintEnd_toEndOf="@+id/iconItemCardView2"
+                app:layout_constraintStart_toStartOf="@+id/iconItemCardView2"
+                app:layout_constraintTop_toTopOf="@+id/iconItemCardView2" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:nestedScrollingEnabled="false"
+            app:layout_constraintTop_toBottomOf="@id/iconItemCardView1" />
+
+            <!--ScrollView 안에 recyclerview를 사용할 경우 nestedScrollingEnabled 옵션으로 스크롤 비활성화 할 수 있음-->
+            <!--출처: https://zerocool0713.tistory.com/154 -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="15dp"
+            android:text="이하 여백"
+            android:textColor="#717171"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recyclerView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
