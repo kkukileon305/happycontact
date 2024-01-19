@@ -27,6 +27,7 @@ class MyPage : Fragment() {
 	private lateinit var dialogBinding: MypageEditDialogBinding
 	private val pickImage = 1
 	private var selectedImageUri: Uri? = null
+	//수정전 이미지를 저장해 취소를 눌렀을 때 이전의 이미지로 돌아갈수 있게 이전 이미지를 담아놓음
 	private var tempImageUri : Uri? = null
 
 
@@ -69,7 +70,7 @@ class MyPage : Fragment() {
 			editNumber.hint = (binding.tvMyPhoneNum).text
 
 			builder.setView(dialogBinding.root)
-
+			//프로필사진 변경 intent로
 			dialogBinding.ivEditProfileImage.setOnClickListener {
 
 				val intent = Intent(Intent.ACTION_PICK)
@@ -151,7 +152,7 @@ class MyPage : Fragment() {
 
 			}
 
-//			builder.setNegativeButton("취소",null)//
+//			builder.setNegativeButton("취소",null)
 			builder.setNegativeButton("취소") { _,_ ->
 				//취소 버튼이 눌리면 기존 이미지를 임시 이미지로 되돌리잚
 				selectedImageUri = tempImageUri
@@ -164,6 +165,7 @@ class MyPage : Fragment() {
 
 
 	}
+	//암시적 intent를 통해 갤러리를 불러오기
 	override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
 		super.onActivityResult(requestCode, resultCode, data)
 
