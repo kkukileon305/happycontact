@@ -4,3 +4,5 @@
     <corners android:radius="15dp"/>
 </shape>
 
+<!--적용이 안됌, 해결 방법 찾기 전까지 보류-->
+

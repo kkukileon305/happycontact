@@ -10,7 +10,7 @@
         android:id="@+id/tv_title"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="#123abc"
+        android:background="#E10846"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

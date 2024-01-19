@@ -52,9 +52,9 @@ class ContactListAdapter(
 			contactName.text = data.name
 
 			if (data.like) {
-				like.setImageResource(R.drawable.heart_filled)
+				like.setImageResource(R.drawable.ic_heart_filled)
 			} else {
-				like.setImageResource(R.drawable.heart)
+				like.setImageResource(R.drawable.ic_heart_outlined)
 			}
 
 			like.setOnClickListener {

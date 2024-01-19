@@ -5,11 +5,13 @@ import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
+import android.util.Patterns
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.goodness.happycontact.databinding.FragmentMyPageBinding
 import com.goodness.happycontact.databinding.MypageEditDialogBinding
@@ -85,8 +87,17 @@ class MyPage : Fragment() {
 				if (editName.text.isNotEmpty()) {
 					binding.tvMyName.text = (editName.text).toString()
 				}
+
 				if (editEmail.text.isNotEmpty()) {
-					binding.tvMyEmail.text = (editEmail.text).toString()
+
+					val mail = dialogBinding.dialogEditEmail.text.toString()
+
+					if (!Patterns.EMAIL_ADDRESS.matcher(mail).matches()) {
+						Toast.makeText(context, "이메일 형식이 올바르지 않습니다", Toast.LENGTH_SHORT).show()
+						return@setPositiveButton
+					} else {
+						binding.tvMyEmail.text = (editEmail.text).toString()
+					}
 				}
 
 //				if (editNumber.text.isNotEmpty()) {

@@ -10,12 +10,12 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.goodness.happycontact.databinding.ActivityDetailBinding
 
 class DetailActivity : AppCompatActivity() {
     private val binding by lazy { ActivityDetailBinding.inflate(layoutInflater) }
     private var contact: Contact? = null
-    private lateinit var contactList: ContactList
     private val resultLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
@@ -25,33 +25,18 @@ class DetailActivity : AppCompatActivity() {
                 }
             }
         }
+
+    //추가
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var contactAdapter: DetailAdapter
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        contactList = ContactList()
-
-        val receivedIntent = intent
-        val receivedBundle = receivedIntent.extras
+        contact = intent.getParcelableExtra<Contact>(Contact.CONTACT_KEY)
         val ivBack: ImageView = findViewById(R.id.ivBack)
-
-//         Bundle에서 연락처 정보 추출
-        contact = receivedBundle?.getParcelable<Contact>(Contact.CONTACT_KEY)
-//        val contact = receivedBundle?.getParcelable<Contact>(Contact.CONTACT_KEY)
-
-
-        // 연락처 정보가 null이 아닌 경우에만 표시
-        contact?.let {
-            val profileImageView = binding.imageView
-            if (it.profileImageUri.isNullOrBlank()) {
-                profileImageView.setImageResource(it.profileImage)
-            } else {
-                profileImageView.setImageURI(Uri.parse(it.profileImageUri))
-            }
-            binding.textView.text = it.name
-            binding.tvMobile2.text = it.phoneNumber
-            binding.tvEmail2.text = it.email
-        }
 
         updateLikeButtonImage()
 
@@ -64,8 +49,7 @@ class DetailActivity : AppCompatActivity() {
                 returnIntent.putExtra(Contact.CONTACT_KEY, it)
                 Log.d("DetailActivity", "ivLike Clicked")
 
-
-                resultLauncher.launch(Intent(this, MainActivity::class.java))
+//                resultLauncher.launch(Intent(this, MainActivity::class.java))
                 // 좋아요 상태에 따라 이미지 설정
                 updateLikeButtonImage()
             }
@@ -75,15 +59,24 @@ class DetailActivity : AppCompatActivity() {
             // 클릭 시 뒤로 가는 동작 수행
             onBackPressed()
         }
-
+        detailRV()
     }
+
+    private fun detailRV() {
+        recyclerView = binding.recyclerView
+        recyclerView.layoutManager = LinearLayoutManager(this)
+
+        contactAdapter = DetailAdapter(listOf(contact!!))
+        recyclerView.adapter = contactAdapter
+    }
+
 
     //     좋아요 버튼 이미지 업데이트 함수
     private fun updateLikeButtonImage() {
         if (contact?.like == true) {
-            binding.ivLike.setImageResource(R.drawable.heart_filled)
+            binding.ivLike.setImageResource(R.drawable.ic_heart_filled)
         } else {
-            binding.ivLike.setImageResource(R.drawable.heart)
+            binding.ivLike.setImageResource(R.drawable.ic_heart_outlined)
         }
     }
 
