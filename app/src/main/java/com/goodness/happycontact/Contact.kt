@@ -4,6 +4,12 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
+sealed class Select : Parcelable {
+
+	data class Title(val nmValue: String) : Select()
+}
+
+@Parcelize
 data class Contact(
 	val id: Int,
 	val profileImage: Int,
@@ -140,5 +146,6 @@ data class Contact(
 		val CONTACT_KEY = "CONTACT"
 	}
 }
+interface ItemClick
 
 // Contact.DATA해서 데이터 가져다가 쓰세요*/
