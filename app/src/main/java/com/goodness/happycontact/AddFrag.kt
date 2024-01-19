@@ -73,8 +73,8 @@ class AddFrag(val onAdd: () -> Unit) : DialogFragment() {
 
 			val addNewContact = Contact(
 				id = Contact.DATA.size + 1,
-				profileImage = R.drawable.ic_launcher_foreground, // 임시 이미지 추가
-				profileImageUri = selectedImageUri.toString(),
+				profileImage = R.drawable.ic_person, // 임시 이미지 추가
+				profileImageUri = selectedImageUri?.toString(),
 				name = name,
 				email = mail,
 				phoneNumber = num,
