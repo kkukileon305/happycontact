@@ -10,4 +10,10 @@
     <string name="dialog_mail">eMail</string>
     <string name="dialog_cancel">Cancel</string>
     <string name="dialog_add">Add</string>
+    <string name="dialog_more">▽ View more</string>
+    <string name="dialog_group">Group</string>
+    <string name="dialog_address">Address</string>
+    <string name="dialog_birth">BirthDay</string>
+    <string name="dialog_event">Event</string>
+    <string name="dialog_memo">Memo</string>
 </resources>

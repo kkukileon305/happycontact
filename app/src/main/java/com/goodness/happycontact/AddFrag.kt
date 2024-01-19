@@ -28,7 +28,7 @@ class AddFrag(val onAdd: () -> Unit) : DialogFragment() {
 		}
 	}
 
-	override fun onResume() { //dialog view 가로 크기 비율을 설정 : 코드 가져옴
+/*	override fun onResume() { //dialog view 가로 크기 비율을 설정 : 코드 가져옴
 		val windowManager = requireContext().getSystemService(Context.WINDOW_SERVICE) as WindowManager
 		val display = windowManager.defaultDisplay
 		val size = Point()
@@ -39,6 +39,11 @@ class AddFrag(val onAdd: () -> Unit) : DialogFragment() {
 		params?.width = (deviceWidth * 0.9).toInt()
 		dialog?.window?.attributes = params as WindowManager.LayoutParams
 		super.onResume()
+	}*/
+
+	override fun onStart() {
+		super.onStart()
+		dialog?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
 	}
 
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -54,11 +59,25 @@ class AddFrag(val onAdd: () -> Unit) : DialogFragment() {
 			pickImageFromGallery.launch("image/*")
 		}
 
+		binding.viewMore.setOnClickListener {
+			binding.viewMore.visibility = View.GONE
+			binding.editGroup.visibility = View.VISIBLE
+			binding.editAdress.visibility = View.VISIBLE
+			binding.editBirth.visibility = View.VISIBLE
+			binding.editEvent.visibility = View.VISIBLE
+			binding.editMemo.visibility = View.VISIBLE
+		}
+
 		binding.btnDialogYes.setOnClickListener {
 			//img는 selectedImageUri 에서 Uri 가져와서 사용
 			val name = binding.editName.text.toString()
 			val num = binding.editNum.text.toString()
 			val mail = binding.editMail.text.toString()
+			val adr = binding.editAdress.text.toString()
+			val group = binding.editGroup.text.toString()
+			val birth = binding.editBirth.text.toString()
+			val event = binding.editEvent.text.toString()
+			val memo = binding.editMemo.text.toString()
 
 			if (name.isEmpty() || num.isEmpty() || mail.isEmpty()) {
 				Toast.makeText(context, "모든 필드를 채워주세요", Toast.LENGTH_SHORT).show()
@@ -79,11 +98,11 @@ class AddFrag(val onAdd: () -> Unit) : DialogFragment() {
 				email = mail,
 				phoneNumber = num,
 				like = false,
-				address = num,
-				relationship = num,
-				bigDay = num,
-				birthDay = num,
-				memo = num
+				address = adr,
+				relationship = group,
+				bigDay = event,
+				birthDay = birth,
+				memo = memo
 			)
 
 			Contact.DATA.add(addNewContact)
