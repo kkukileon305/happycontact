@@ -5,4 +5,9 @@
     <string name="main_tab_name_1">CONTACT</string>
     <string name="main_tab_name_2">MY PAGE</string>
     <string name="dialog_name">Name</string>
+    <string name="dialog_num">Phone number</string>
+    <string name="dialog_title">Add</string>
+    <string name="dialog_mail">eMail</string>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="dialog_add">Add</string>
 </resources>
