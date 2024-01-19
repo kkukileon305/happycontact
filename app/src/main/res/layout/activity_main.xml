@@ -9,8 +9,13 @@
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:background="#E10846"
+        android:text="     ⌕  르탄 연락처"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:gravity="start|center"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -46,7 +51,7 @@
         android:backgroundTint="#FFFAF9"
         app:cardElevation="5dp"
         app:cardCornerRadius="55dp"
-        android:layout_margin="15dp"
+        android:layout_margin="20dp"
         app:layout_constraintBottom_toTopOf="@id/tab_layout"
         app:layout_constraintEnd_toEndOf="parent">
 
