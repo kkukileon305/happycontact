@@ -147,11 +147,12 @@ data class Contact(
 				like = false,
 				phoneNumber = "01011112222"
 			),
-		)
+		).sortedBy { it.name }.toMutableList()
 
 		val CONTACT_KEY = "CONTACT"
 	}
 }
+
 interface ItemClick
 
 // Contact.DATA해서 데이터 가져다가 쓰세요*/
