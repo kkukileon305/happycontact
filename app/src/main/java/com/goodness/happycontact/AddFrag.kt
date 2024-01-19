@@ -73,6 +73,11 @@ class AddFrag(val onAdd: () -> Unit) : DialogFragment() {
 			val name = binding.editName.text.toString()
 			val num = binding.editNum.text.toString()
 			val mail = binding.editMail.text.toString()
+			val adr = binding.editAdress.text.toString()
+			val group = binding.editGroup.text.toString()
+			val birth = binding.editBirth.text.toString()
+			val event = binding.editEvent.text.toString()
+			val memo = binding.editMemo.text.toString()
 
 			if (name.isEmpty() || num.isEmpty() || mail.isEmpty()) {
 				Toast.makeText(context, "모든 필드를 채워주세요", Toast.LENGTH_SHORT).show()
@@ -93,11 +98,11 @@ class AddFrag(val onAdd: () -> Unit) : DialogFragment() {
 				email = mail,
 				phoneNumber = num,
 				like = false,
-				address = num,
-				relationship = num,
-				bigDay = num,
-				birthDay = num,
-				memo = num
+				address = adr,
+				relationship = group,
+				bigDay = event,
+				birthDay = birth,
+				memo = memo
 			)
 
 			Contact.DATA.add(addNewContact)

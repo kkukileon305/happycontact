@@ -51,6 +51,7 @@ class DetailActivity : AppCompatActivity() {
             binding.textView.text = it.name
             binding.tvMobile2.text = it.phoneNumber
             binding.tvEmail2.text = it.email
+            binding.tvRelationship2.text = it.relationship
         }
 
         updateLikeButtonImage()
