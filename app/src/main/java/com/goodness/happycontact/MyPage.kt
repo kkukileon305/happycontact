@@ -77,7 +77,7 @@ class MyPage : Fragment() {
 				startActivityForResult(intent, pickImage)
 			}
 
-
+			//입력한 정보가 비어있지 않을때 변경
 			builder.setPositiveButton("변경") { _, _ ->
 
 				binding.ivMyProfileImage.setImageURI(selectedImageUri)
@@ -135,7 +135,7 @@ class MyPage : Fragment() {
 						val dateFormat = if (enterDate.contains("/")) {
 							SimpleDateFormat("yyyy/MM/dd", Locale.getDefault())
 						} else {
-							SimpleDateFormat("yyyy MM dd", Locale.getDefault())
+							SimpleDateFormat("yyyyMMdd", Locale.getDefault())
 						}
 						val parsedDate = dateFormat.parse(enterDate)
 
