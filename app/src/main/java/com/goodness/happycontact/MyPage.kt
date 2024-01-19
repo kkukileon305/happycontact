@@ -2,6 +2,7 @@ package com.goodness.happycontact
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -45,12 +46,12 @@ class MyPage : Fragment() {
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 
-
+		//다이얼로그 띄우기
 		binding.ivEdit.setOnClickListener {
 
 			val builder = AlertDialog.Builder(requireContext())
 			dialogBinding = MypageEditDialogBinding.inflate(layoutInflater)
-
+			//다이얼로그 들어가는 변경된 이미지Uri
 			if (selectedImageUri != null) {
 				dialogBinding.dialogNowProfileImage.setImageURI(selectedImageUri)
 			}
@@ -78,6 +79,7 @@ class MyPage : Fragment() {
 			builder.setPositiveButton("변경") { _, _ ->
 
 				binding.ivMyProfileImage.setImageURI(selectedImageUri)
+				//변경시에 임시이미지 또한 같이 변경
 				tempImageUri =selectedImageUri
 
 				if (editName.text.isNotEmpty()) {
@@ -94,16 +96,29 @@ class MyPage : Fragment() {
 				if (editNumber.text.isNotEmpty()) {
 
 					val editNum = editNumber.text.toString()
-					val strBuilder = StringBuilder(editNum)
+					// 11자리 일때
+					if (editNum.length == 11) {
+						val strBuilder = StringBuilder(editNum)
+						//3번째자리 ,8번째 자리에 - 넣어서 휴대폰번호 형식 구분하기
+						strBuilder.insert(3, "-").insert(8, "-")
+						val text = strBuilder.toString()
+						binding.tvMyPhoneNum.apply {
+							this.text = text
+							this.textSize = 24f
+							this.setTextColor(Color.BLACK)
+						}
+					} else {
+						binding.tvMyPhoneNum.apply {
+							this.text = "번호를 잘못 입력 하셨습니다. 다시 입력해주세요"
+							this.textSize = 16F
+							this.setTextColor(Color.RED)
+						}
 
-					strBuilder.insert(3,"-").insert(8,"-")
-					val text = strBuilder.toString()
-					binding.tvMyPhoneNum.text = text
+					}
 				}
 
-
+				//예외처리로 앱 다운현상 막기
 				try {
-
 					if (editBirth.text.isNotEmpty()) {
 						val enterDate = (editBirth.text).toString()
 						val dateFormat = if (enterDate.contains("/")) {
@@ -127,6 +142,7 @@ class MyPage : Fragment() {
 
 //			builder.setNegativeButton("취소",null)//
 			builder.setNegativeButton("취소") { _,_ ->
+				//취소 버튼이 눌리면 기존 이미지를 임시 이미지로 되돌리잚
 				selectedImageUri = tempImageUri
 				null
 			}

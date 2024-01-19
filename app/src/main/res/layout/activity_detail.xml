@@ -38,6 +38,7 @@
             android:id="@+id/textView"
             android:layout_width="240dp"
             android:layout_height="40dp"
+            android:layout_marginTop="360dp"
             android:background="@null"
             android:gravity="center"
             android:text="Monkey Sparta"
@@ -45,7 +46,8 @@
             android:textStyle="normal|bold"
             app:layout_constraintBottom_toBottomOf="@+id/imageView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageView" />
 
         <ImageView
             android:id="@+id/ivLike"
@@ -437,13 +439,15 @@
             app:layout_constraintStart_toStartOf="@+id/iconItemCardView6"
             app:layout_constraintTop_toBottomOf="@+id/tvAd" />
 
+
+
         <TextView
-            android:id="@+id/tvMemo"
+            android:id="@+id/tvBirthday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginBottom="20dp"
-            android:text="MEMO"
+            android:text="BIRTHDAY"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/iconItemCardView7"
@@ -451,19 +455,19 @@
             app:layout_constraintTop_toTopOf="@+id/iconItemCardView7" />
 
         <TextView
-            android:id="@+id/tvMemo2"
+            android:id="@+id/tvBirthday2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="6dp"
-            android:text="전화 오면 무시"
+            android:text="10.20(수)"
             android:textColor="#716C6C"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/iconItemCardView7"
             app:layout_constraintStart_toStartOf="@+id/iconItemCardView7"
-            app:layout_constraintTop_toBottomOf="@+id/tvMemo" />
+            app:layout_constraintTop_toBottomOf="@+id/tvBirthday" />
 
         <TextView
             android:id="@+id/tvBigDay"
@@ -493,33 +497,7 @@
             app:layout_constraintStart_toStartOf="@+id/iconItemCardView8"
             app:layout_constraintTop_toBottomOf="@+id/tvBigDay" />
 
-        <TextView
-            android:id="@+id/tvBirthday"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginBottom="20dp"
-            android:text="BIRTHDAY"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/iconItemCardView9"
-            app:layout_constraintStart_toStartOf="@+id/iconItemCardView9"
-            app:layout_constraintTop_toTopOf="@+id/iconItemCardView9" />
 
-        <TextView
-            android:id="@+id/tvBirthday2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="6dp"
-            android:text="10.20(수)"
-            android:textColor="#716C6C"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/iconItemCardView9"
-            app:layout_constraintStart_toStartOf="@+id/iconItemCardView9"
-            app:layout_constraintTop_toBottomOf="@+id/tvBirthday" />
 
         <ImageView
             android:id="@+id/ivBack"
@@ -530,6 +508,35 @@
             app:layout_constraintStart_toStartOf="@+id/view"
             app:layout_constraintTop_toTopOf="@+id/view"
             app:srcCompat="@android:drawable/ic_menu_revert" />
+        <TextView
+            android:id="@+id/tvMemo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="20dp"
+            android:text="MEMO"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/iconItemCardView9"
+            app:layout_constraintStart_toStartOf="@+id/iconItemCardView9"
+            app:layout_constraintTop_toTopOf="@+id/iconItemCardView9" />
+
+        <TextView
+            android:id="@+id/tvMemo2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="6dp"
+            android:text="전화 오면 무시"
+            android:textColor="#716C6C"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/iconItemCardView9"
+            app:layout_constraintStart_toStartOf="@+id/iconItemCardView9"
+            app:layout_constraintTop_toBottomOf="@+id/tvMemo" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

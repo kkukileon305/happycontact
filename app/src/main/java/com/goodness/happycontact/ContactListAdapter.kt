@@ -15,6 +15,13 @@ class ContactListAdapter(
 	private var dataList: List<Contact>,
 	private val onLikeButtonClick: (Int) -> Unit
 ) : RecyclerView.Adapter<ContactListAdapter.Holder>() {
+
+	interface ItemLikeClick {
+		fun onLikeClick(position: Int)
+	}
+
+	var itemLikeClick: ItemLikeClick? = null
+
 	inner class Holder(private val binding: ContactItemBinding) : RecyclerView.ViewHolder(binding.root) {
 		val icon = binding.ivContactIcon
 		val contactName = binding.tvContactName
@@ -24,6 +31,7 @@ class ContactListAdapter(
 	override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
 		val binding = ContactItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
 		return Holder(binding)
+
 	}
 
 	override fun getItemCount(): Int {
@@ -35,9 +43,9 @@ class ContactListAdapter(
 
 		holder.apply {
 
-			if (data.profileImageUri.isNullOrBlank() ){
+			if (data.profileImageUri.isNullOrBlank()) {
 				icon.setImageResource(data.profileImage)
-			}else{
+			} else {
 				icon.setImageURI(Uri.parse(data.profileImageUri))
 			}
 
@@ -51,7 +59,7 @@ class ContactListAdapter(
 
 			like.setOnClickListener {
 				onLikeButtonClick(position)
-				notifyItemChanged(position)
+				itemLikeClick?.onLikeClick(position)
 			}
 
 			itemView.setOnClickListener {
@@ -64,9 +72,5 @@ class ContactListAdapter(
 			}
 		}
 
-		}
-	fun updateData(newData: List<Contact>) {
-		dataList = newData  // dataList을 새로운 데이터로 갱신
-		notifyDataSetChanged()
 	}
 }
