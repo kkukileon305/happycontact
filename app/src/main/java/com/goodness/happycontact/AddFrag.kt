@@ -92,7 +92,12 @@ class AddFrag(val onAdd: () -> Unit) : DialogFragment() {
 				name = name,
 				email = mail,
 				phoneNumber = num,
-				like = false
+				like = false,
+				address = num,
+				relationship = num,
+				bigDay = num,
+				birthDay = num,
+				memo = num
 			)
 
 			Contact.DATA.add(addNewContact)
