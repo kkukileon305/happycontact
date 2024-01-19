@@ -2,6 +2,7 @@ package com.goodness.happycontact
 
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -14,14 +15,17 @@ import com.goodness.happycontact.databinding.MypageEditDialogBinding
 import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.util.Locale
-
-
+import kotlin.text.StringBuilder
 
 
 class MyPage : Fragment() {
+
 	private lateinit var binding: FragmentMyPageBinding
 	private lateinit var dialogBinding: MypageEditDialogBinding
-	private val PICK_IMAGE_REQUEST = 1
+	private val pickImage = 1
+	private var selectedImageUri: Uri? = null
+	private var tempImageUri : Uri? = null
+
 
 
 
@@ -47,6 +51,9 @@ class MyPage : Fragment() {
 			val builder = AlertDialog.Builder(requireContext())
 			dialogBinding = MypageEditDialogBinding.inflate(layoutInflater)
 
+			if (selectedImageUri != null) {
+				dialogBinding.dialogNowProfileImage.setImageURI(selectedImageUri)
+			}
 
 			val editName: EditText = dialogBinding.dialogEditName
 			val editEmail: EditText = dialogBinding.dialogEditEmail
@@ -61,18 +68,17 @@ class MyPage : Fragment() {
 			builder.setView(dialogBinding.root)
 
 			dialogBinding.ivEditProfileImage.setOnClickListener {
+
 				val intent = Intent(Intent.ACTION_PICK)
 				intent.type = "image/*"
-				startActivityForResult(intent, PICK_IMAGE_REQUEST)
+				startActivityForResult(intent, pickImage)
 			}
-
-//			val numFormat = DecimalFormat("###-####-####")
-//			val dateFormat = DecimalFormat("####/##/##")
-//			val rawPhoneNumber = (binding.tvMyPhoneNum.text).toString()
-//			val formattingNum = numFormat.format(rawPhoneNumber)
 
 
 			builder.setPositiveButton("변경") { _, _ ->
+
+				binding.ivMyProfileImage.setImageURI(selectedImageUri)
+				tempImageUri =selectedImageUri
 
 				if (editName.text.isNotEmpty()) {
 					binding.tvMyName.text = (editName.text).toString()
@@ -80,16 +86,30 @@ class MyPage : Fragment() {
 				if (editEmail.text.isNotEmpty()) {
 					binding.tvMyEmail.text = (editEmail.text).toString()
 				}
+
+//				if (editNumber.text.isNotEmpty()) {
+//					binding.tvMyPhoneNum.text = (editNumber.text).toString()
+//				}
+
 				if (editNumber.text.isNotEmpty()) {
-					binding.tvMyPhoneNum.text = (editNumber.text).toString()
+
+					val editNum = editNumber.text.toString()
+					val strBuilder = StringBuilder(editNum)
+
+					strBuilder.insert(3,"-").insert(8,"-")
+					val text = strBuilder.toString()
+					binding.tvMyPhoneNum.text = text
 				}
+
+
 				try {
+
 					if (editBirth.text.isNotEmpty()) {
 						val enterDate = (editBirth.text).toString()
 						val dateFormat = if (enterDate.contains("/")) {
 							SimpleDateFormat("yyyy/MM/dd", Locale.getDefault())
 						} else {
-							SimpleDateFormat("yyyyMMdd", Locale.getDefault())
+							SimpleDateFormat("yyyy MM dd", Locale.getDefault())
 						}
 						val parsedDate = dateFormat.parse(enterDate)
 
@@ -102,9 +122,14 @@ class MyPage : Fragment() {
 				} catch (e: Exception){
 					e.printStackTrace()
 				}
+
 			}
 
-			builder.setNegativeButton("취소",null)
+//			builder.setNegativeButton("취소",null)//
+			builder.setNegativeButton("취소") { _,_ ->
+				selectedImageUri = tempImageUri
+				null
+			}
 
 			builder.show()
 
@@ -115,14 +140,11 @@ class MyPage : Fragment() {
 	override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
 		super.onActivityResult(requestCode, resultCode, data)
 
-		if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null) {
-			val selectedImageUri = data.data
-
-			binding.ivMyProfileImage.setImageURI(selectedImageUri)
+		if (requestCode == pickImage && resultCode == Activity.RESULT_OK && data != null) {
+			selectedImageUri = data.data
 			dialogBinding.dialogNowProfileImage.setImageURI(selectedImageUri)
 		}
 	}
-
 
 }
 

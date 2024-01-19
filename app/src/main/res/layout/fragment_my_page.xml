@@ -19,7 +19,7 @@
             <ImageView
                 android:id="@+id/iv_myProfileImage"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="320dp"
                 app:layout_constraintStart_toStartOf="parent"
                 android:src="@drawable/sparta"
                 android:scaleType="fitXY"
