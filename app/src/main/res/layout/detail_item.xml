@@ -5,6 +5,7 @@
     android:layout_height="70dp">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/testssss"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginHorizontal="10dp"
