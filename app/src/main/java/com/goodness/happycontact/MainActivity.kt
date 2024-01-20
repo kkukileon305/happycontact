@@ -1,6 +1,7 @@
 package com.goodness.happycontact
 
 import android.content.pm.PackageManager
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.app.ActivityCompat
@@ -66,6 +67,11 @@ class MainActivity : AppCompatActivity() {
 		}
 		if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
 			getList.add(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+		}
+		if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+				getList.add(android.Manifest.permission.POST_NOTIFICATIONS)
+			}// 컴파일러 추천으로 티라미수 이상 버전에서만 권한을 요청하도록 설정함
 		}
 		//여기서 각 권한이 부여되어 있는지 체크하고, 없으면 getList에 추가함
 		//저장공간 권한이 요청되지 않는데 API 29 부터는 Scoped Storage라는 기능을 사용한다고 함 적용 필요

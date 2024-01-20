@@ -16,10 +16,13 @@ class DetailAdapter(private val contactList: List<Contact>) : RecyclerView.Adapt
     override fun getItemCount(): Int {
         return contactList.size * 7
     }
+    //표시되어야 할 속성 개수를 반환
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val contact = contactList[position / 7]
+        //해당 포지션에서 7개의 인텍스를 공간을 contact에 생성하고
         when (position % 7) {
+            //각 인덱스에 할당될 데이터를 지정
             0 -> {
                 holder.title.text = "전화번호"
                 holder.des.text = contact.phoneNumber
@@ -50,9 +53,11 @@ class DetailAdapter(private val contactList: List<Contact>) : RecyclerView.Adapt
             }
         }
     }
+    //
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val title: TextView = itemView.findViewById(R.id.tv_card_title)
         val des: TextView = itemView.findViewById(R.id.tv_card_des)
     }
+    //상세 정보를 표시하기 위해 두 개의 텍스트 뷰를 캡슐화
 }
