@@ -18,3 +18,4 @@ class MainAdapter(fragmentActivity: FragmentActivity) : FragmentStateAdapter(fra
 		return fragmentList[p0]
 	}
 }
+//

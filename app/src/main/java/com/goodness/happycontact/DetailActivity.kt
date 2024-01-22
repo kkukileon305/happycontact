@@ -50,7 +50,19 @@ class DetailActivity : AppCompatActivity() {
 
         }
 
-        updateLikeButtonImage()
+        updateLikeButtonImage()//
+        //메시지 보내기
+        binding.iconItemCardView1.setOnClickListener {
+            var intent = Intent(Intent.ACTION_SENDTO)
+            intent.data = Uri.parse("smsto: ${contact?.phoneNumber}")
+            startActivity(intent)
+        }//전화걸기
+        binding.iconItemCardView2.setOnClickListener {
+            var intent = Intent(Intent.ACTION_DIAL)
+            intent.data = Uri.parse("tel:${contact?.phoneNumber}")
+            startActivity(intent)
+        }
+
 
         // 좋아요 상태 토글
         binding.ivLike.setOnClickListener {
