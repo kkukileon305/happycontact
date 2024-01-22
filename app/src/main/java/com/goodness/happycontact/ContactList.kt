@@ -1,6 +1,7 @@
 package com.goodness.happycontact
 
 import android.app.Activity
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.goodness.happycontact.databinding.FragmentContactListBinding
 
@@ -56,7 +58,38 @@ class ContactList : Fragment() {
 		}
 
 		recyclerView.adapter = contactListAdapter
-		recyclerView.layoutManager = LinearLayoutManager(requireContext())
+		recyclerView.layoutManager = LinearLayoutManager(requireContext())//
+
+
+		contactListAdapter.itemLongClick = object : ContactListAdapter.ItemLongClick {
+			override fun onLongClick(view: View, position: Int) {
+				val removeDialog = AlertDialog.Builder(requireContext())
+
+				removeDialog.setTitle("연락처 삭제")
+				removeDialog.setMessage("연락처를 삭제 하시겠습니까?")
+
+				val listener = object : DialogInterface.OnClickListener{
+					override fun onClick(dialog: DialogInterface?, which: Int) {
+						when (which) {
+							DialogInterface.BUTTON_POSITIVE -> {
+								//Contact.removeAt(position)
+								Contact.DATA.removeAt(position)
+								contactListAdapter.notifyItemRemoved(position)
+								
+							}
+							DialogInterface.BUTTON_NEGATIVE -> dialog?.dismiss()
+						}
+					}
+
+				}
+				removeDialog.setPositiveButton("네! 삭제할게요",listener)
+				removeDialog.setNegativeButton("아니요!",listener)
+
+				removeDialog.show()
+
+			}
+		}
+
 
 		return binding.root
 
@@ -89,3 +122,5 @@ class ContactList : Fragment() {
 		}
 	}
 }
+
+

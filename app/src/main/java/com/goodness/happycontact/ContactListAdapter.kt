@@ -19,8 +19,14 @@ class ContactListAdapter(
 	interface ItemLikeClick {
 		fun onLikeClick(position: Int)
 	}
+	//
+	interface ItemLongClick {
+		fun onLongClick (view: View,position: Int)
+
+	}
 
 	var itemLikeClick: ItemLikeClick? = null
+	var itemLongClick : ItemLongClick? = null
 
 	inner class Holder(private val binding: ContactItemBinding) : RecyclerView.ViewHolder(binding.root) {
 		val icon = binding.ivContactIcon
@@ -62,6 +68,8 @@ class ContactListAdapter(
 				itemLikeClick?.onLikeClick(position)
 			}
 
+
+
 			itemView.setOnClickListener {
 				val bundle = Bundle()
 				bundle.putParcelable(Contact.CONTACT_KEY, data)
@@ -70,6 +78,15 @@ class ContactListAdapter(
 				intent.putExtras(bundle)
 				context.startActivity(intent)
 			}
+
+			if (itemLongClick != null) {
+				itemView.setOnLongClickListener() OnLongClickListener@ {
+					itemLongClick?.onLongClick(it,position)
+					return@OnLongClickListener true
+				}
+
+			}
+
 		}
 
 	}
